@@ -11,6 +11,15 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brandGreen: "#038B00",
+        brandOrange: "#FFD761",
+        brandGray: "#5E5E5E",
+        brandFadeBlue: "#F0FDFF",
+        brandFadeGreen: "#9DFF9C",
+        brandFadeGray: "#F5F5F5",
+      },
+      screens: {
+        xs: "480px",
       },
     },
   },
