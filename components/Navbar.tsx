@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Menu from "./ui/Menu";
 import { AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
@@ -16,25 +16,25 @@ export const NAV_LINKS = [
 ];
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(true);
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
+  const lastScrollY = useRef<number>(0);
 
   const handleMenuToggle = () => setIsMenuOpen((prevState) => !prevState);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
+      if (window.scrollY > lastScrollY.current) {
         setIsVisible(false); // Hide navbar when scrolling down
       } else {
         setIsVisible(true); // Show navbar when scrolling up
       }
-      setLastScrollY(window.scrollY);
+      lastScrollY.current = window.scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header

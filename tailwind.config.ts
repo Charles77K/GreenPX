@@ -17,6 +17,7 @@ export default {
         brandFadeBlue: "#F0FDFF",
         brandFadeGreen: "#9DFF9C",
         brandFadeGray: "#F5F5F5",
+        brandBlack: "#061606",
       },
       screens: {
         xs: "480px",

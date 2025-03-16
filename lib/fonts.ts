@@ -3,20 +3,21 @@ import localFont from "next/font/local";
 const onest = localFont({
   src: [
     {
-      path: "../public/fonts/Onest-ExtraLight.ttf",
+      path: "../public/fonts/Onest-Thin.ttf",
       weight: "100",
       style: "normal",
     },
     {
-      path: "../public/fonts/Onest-Light.ttf",
+      path: "../public/fonts/Onest-ExtraLight.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "../public/fonts/Onest-Black.ttf",
+      path: "../public/fonts/Onest-Light.ttf",
       weight: "300",
       style: "normal",
     },
+
     {
       path: "../public/fonts/Onest-Regular.ttf",
       weight: "400",
@@ -42,6 +43,11 @@ const onest = localFont({
       weight: "800",
       style: "normal",
     },
+    {
+      path: "../public/fonts/Onest-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
   ],
   variable: "--font-onest", // Custom CSS variable
 });
@@ -49,20 +55,21 @@ const onest = localFont({
 const outfit = localFont({
   src: [
     {
-      path: "../public/fonts/Outfit-ExtraLight.ttf",
+      path: "../public/fonts/Outfit-Thin.ttf",
       weight: "100",
       style: "normal",
     },
     {
-      path: "../public/fonts/Outfit-Light.ttf",
+      path: "../public/fonts/Outfit-ExtraLight.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "../public/fonts/Outfit-Black.ttf",
+      path: "../public/fonts/Outfit-Light.ttf",
       weight: "300",
       style: "normal",
     },
+
     {
       path: "../public/fonts/Outfit-Regular.ttf",
       weight: "400",
@@ -86,6 +93,11 @@ const outfit = localFont({
     {
       path: "../public/fonts/Outfit-ExtraBold.ttf",
       weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Outfit-Black.ttf",
+      weight: "900",
       style: "normal",
     },
   ],
