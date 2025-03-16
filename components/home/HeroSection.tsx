@@ -46,8 +46,9 @@ const HeroSection = () => {
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { duration: 1, ease: [0.6, 0.0, 0.3, 1], delay: 0.4 },
+            transition: { duration: 1, ease: [0.6, 0.0, 0.3, 1], delay: 0.3 },
           }}
+          viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 mt-20"
         >
           {MILESTONES.map(({ number, description }) => (

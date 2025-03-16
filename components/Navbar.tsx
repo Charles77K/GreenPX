@@ -9,7 +9,7 @@ import { X } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
 
 export const NAV_LINKS = [
-  { label: "Home", href: "/home" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "GreenPX", href: "/features" },
   { label: "Marketplace", href: "/marketplace" },

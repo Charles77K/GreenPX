@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
 const WideButton = ({
@@ -16,7 +17,10 @@ const WideButton = ({
   };
   return (
     <button
-      className={`text-sm md:text-base font-semibold py-4 px-8 md:py-6 md:px-12 rounded-2xl ${className} ${variants[variant]}`}
+      className={cn(
+        `text-sm md:text-base font-semibold py-4 px-8 md:py-6 md:px-12 rounded-2xl ${variants[variant]}`,
+        className
+      )}
     >
       {title}
     </button>
