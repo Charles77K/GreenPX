@@ -36,3 +36,22 @@ export const FEATURES_ITEMS = [
       "Powers fans, TVs, laptops, lights, small fridges, home theater systems, DSTV/GOTV decoders and more",
   },
 ];
+
+export const STEPS_ITEM = [
+  {
+    id: 1,
+    title: "Setup and Charge the Unit",
+  },
+  {
+    id: 2,
+    title: "Power Your Essentials",
+  },
+  {
+    id: 3,
+    title: "Monitor Battery Level & Optimize Usage",
+  },
+  {
+    id: 4,
+    title: "Enjoy!",
+  },
+];

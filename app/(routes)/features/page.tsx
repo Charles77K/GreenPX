@@ -1,5 +1,6 @@
 import {
   FeaturesHero,
+  HowToUse,
   ImageBackground,
   KeyFeatures,
 } from "@/components/features";
@@ -11,6 +12,7 @@ const page = () => {
       <FeaturesHero />
       <KeyFeatures />
       <ImageBackground />
+      <HowToUse />
     </div>
   );
 };
