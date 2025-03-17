@@ -10,7 +10,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
 }
 
@@ -60,4 +60,16 @@ h3 {
   transform: translate(-50%, -50%);
   transition: transform 0.3s linear;
   z-index: 1000;
+}
+
+/* Add this to your global CSS */
+.scroller:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Media query for small screens to use vertical animation */
+@media (max-width: 640px) {
+  .scroller .animate-scroll {
+    animation-name: scrollVertical;
+  }
 }

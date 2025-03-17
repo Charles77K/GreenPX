@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const WhatWeDo = () => {
   return (
-    <div className="py-20 p-4 sm:px-10 md:px-20 lg:px-36">
+    <div className="py-20 p-4 sm:px-10 md:px-20 lg:px-36 bg-white">
       {/* header */}
       <div className="flex-col-center gap-4">
         <Line color="bg-black" />
