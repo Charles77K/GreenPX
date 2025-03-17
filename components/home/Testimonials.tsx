@@ -1,8 +1,8 @@
 import React from "react";
 import Line from "../ui/Line";
-import InfiniteScrollTestimonial from "./InfiniteScrollTestimonial";
-import TestimonialCard from "./TestimonialCard";
-import Image from "next/image";
+// import InfiniteScrollTestimonial from "./InfiniteScrollTestimonial";
+// import TestimonialCard from "./TestimonialCard";
+// import Image from "next/image";
 
 const Testimonials = () => {
   return (
@@ -34,7 +34,7 @@ const Testimonials = () => {
           our needs."
         />
       </section> */}
-      <InfiniteScrollTestimonial speed="fast">
+      {/* <InfiniteScrollTestimonial speed="fast">
         <TestimonialCard
           title="Hassan AI"
           comment="Green Potentia has transformed 
@@ -104,7 +104,7 @@ const Testimonials = () => {
             height={200}
           />
         </li>
-      </InfiniteScrollTestimonial>
+      </InfiniteScrollTestimonial> */}
       {/* <InfiniteScrollTestimonial
         speed="fast"
         direction="right"

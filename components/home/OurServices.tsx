@@ -8,10 +8,10 @@ const OurServices = () => {
       {/* header */}
       <section className="flex flex-col items-start gap-4 max-w-[39rem]">
         <Line color="bg-black" />
-        <h1 className="text-4xl md:text-6xl font-bold">
+        <h1 className="text-lg sm:text-4xl md:text-6xl font-bold">
           Our Comprehensive Services
         </h1>
-        <p className="text-brandGray">
+        <p className="text-brandGray text-sm mb-3 md:text-base">
           Explore our wide range of services designed to meet your renewable
           energy needs. We provide innovative solutions backed by expertise and
           experience

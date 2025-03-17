@@ -1,4 +1,5 @@
 import {
+  Faqs,
   HeroSection,
   LearnMore,
   OurServices,
@@ -17,6 +18,7 @@ export default function Home() {
       <WhatWeDo />
       <ProblemSolving />
       <Testimonials />
+      <Faqs />
 
       {/* orange cursor appearing only on the home page */}
       <Cursor />

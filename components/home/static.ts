@@ -25,3 +25,42 @@ export const PROBLEM_SOLVING_STEPS = [
       "We install panels, and test everything—so you get light, savings, and peace of mind.",
   },
 ];
+
+export const FAQs = [
+  {
+    id: 1,
+    question: "What service does your agency offers?",
+    answer:
+      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+  },
+  {
+    id: 2,
+    question: "How can your agency help my business?",
+    answer:
+      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+  },
+  {
+    id: 3,
+    question: "What is your pricing structure?",
+    answer:
+      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+  },
+  {
+    id: 4,
+    question: "What sets your agency apart from competitors?",
+    answer:
+      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+  },
+  {
+    id: 5,
+    question: "How do you stay up-to-date with trends?",
+    answer:
+      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+  },
+  {
+    id: 6,
+    question: "How do you stay up-to-date with trends?",
+    answer:
+      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+  },
+];

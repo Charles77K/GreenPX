@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { onest, outfit } from "@/lib/fonts";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Green Potentia Limited",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className={`${onest.variable} ${outfit.variable} antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
