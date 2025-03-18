@@ -9,7 +9,7 @@ import { motion as m } from "motion/react";
 const FeaturesHero = () => {
   return (
     <div
-      className="relative text-white flex flex-col items-center px-4 py-24 md:py-32 bg-cover bg-center min-h-[80vh] justify-between"
+      className="relative text-white flex flex-col px-4 items-center py-16 bg-cover bg-center justify-between"
       style={{
         backgroundImage: `url(/features/features-hero.jpeg)`,
       }}
@@ -18,7 +18,7 @@ const FeaturesHero = () => {
       <div className="absolute inset-0 bg-black/65" aria-hidden="true" />
 
       {/* Main content wrapper */}
-      <div className="relative w-full flex flex-col items-center justify-between pt-20 flex-grow z-10">
+      <div className="relative w-full flex flex-col items-center justify-between pt-28 md:pt-40 flex-grow z-10">
         {/* Hero content */}
         <m.div
           initial={{ opacity: 0, y: 60 }}
@@ -29,13 +29,13 @@ const FeaturesHero = () => {
           <h3 className="text-brandGray bg-brandOrange w-fit rounded-full p-1 text-xs">
             Introducing our Flagship Product
           </h3>
-          <h1 className="text-5xl md:text-6xl xl:text-8xl -tracking-[2px] font-black">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl -tracking-[2px] font-extrabold">
             GreenPX
           </h1>
-          <h2 className="font-extralight -mt-3 text-3xl md:text-5xl -tracking-[2px] lg:text-6xl">
+          <h2 className="font-extralight text-center -mt-2 text-3xl md:text-5xl -tracking-[2px] lg:text-6xl">
             (Solar Generator)
           </h2>
-          <p className="text-center max-w-[30rem] mt-2 text-sm">
+          <p className="text-center max-w-[30rem] mt-4 text-sm">
             GreenPX is a silent, solar-powered battery box that keeps your
             lights, phone, and other devices running. Just charge it with
             sunlight (or your wall socket) and say goodbye to noisy generators
