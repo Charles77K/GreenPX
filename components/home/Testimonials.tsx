@@ -1,12 +1,12 @@
 import React from "react";
 import Line from "../ui/Line";
-// import InfiniteScrollTestimonial from "./InfiniteScrollTestimonial";
-// import TestimonialCard from "./TestimonialCard";
-// import Image from "next/image";
+import InfiniteScrollTestimonial from "./InfiniteScrollTestimonial";
+import TestimonialCard from "./TestimonialCard";
+import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <div className="text-black py-20 p-20 overflow-hidden w-full">
+    <div className="text-black py-20 p-20 flex-col-center mx-auto overflow-hidden w-full">
       <section className="flex-col-center gap-5">
         <Line color="bg-brandGreen" />
         <h4 className="text-5xl font-medium text-center">
@@ -34,7 +34,7 @@ const Testimonials = () => {
           our needs."
         />
       </section> */}
-      {/* <InfiniteScrollTestimonial speed="fast">
+      <InfiniteScrollTestimonial speed="normal">
         <TestimonialCard
           title="Hassan AI"
           comment="Green Potentia has transformed 
@@ -104,11 +104,11 @@ const Testimonials = () => {
             height={200}
           />
         </li>
-      </InfiniteScrollTestimonial> */}
-      {/* <InfiniteScrollTestimonial
+      </InfiniteScrollTestimonial>
+      <InfiniteScrollTestimonial
         speed="fast"
         direction="right"
-        className="hidden md:block"
+        className="hidden md:block pt-4"
       >
         <TestimonialCard
           title="Hassan AI"
@@ -128,7 +128,7 @@ const Testimonials = () => {
           <Image
             src={"/home/user-1.png"}
             alt="user-icon-1"
-            width={200}
+            width={350}
             height={200}
           />
         </li>
@@ -151,7 +151,7 @@ const Testimonials = () => {
           <Image
             src={"/home/user-3.png"}
             alt="user-icon-1"
-            width={200}
+            width={350}
             height={200}
             className="rounded-[2rem]"
           />
@@ -175,11 +175,11 @@ const Testimonials = () => {
           <Image
             src={"/home/user-2.png"}
             alt="user-icon-1"
-            width={200}
+            width={350}
             height={200}
           />
         </li>
-      </InfiniteScrollTestimonial> */}
+      </InfiniteScrollTestimonial>
     </div>
   );
 };

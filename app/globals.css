@@ -62,14 +62,32 @@ h3 {
   z-index: 1000;
 }
 
-/* Add this to your global CSS */
-.scroller:hover .animate-scroll {
-  animation-play-state: paused;
-}
-
-/* Media query for small screens to use vertical animation */
-@media (max-width: 640px) {
-  .scroller .animate-scroll {
+/* Mobile-specific animation adjustments */
+@media (max-width: 767px) {
+  .scroller .animate-auto-scroll {
     animation-name: scrollVertical;
   }
+}
+
+@keyframes scrollVertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-auto-scroll {
+  animation: var(--animation-name) var(--animation-duration) linear infinite;
+  animation-direction: var(--animation-direction, forwards);
 }
