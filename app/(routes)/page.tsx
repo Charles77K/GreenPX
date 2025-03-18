@@ -11,7 +11,7 @@ import Cursor from "@/components/ui/Cursor";
 
 export default function Home() {
   return (
-    <div className="min-h-screen cursor-none">
+    <div className="cursor-none overflow-x-hidden">
       <HeroSection />
       <OurServices />
       <LearnMore />

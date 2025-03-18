@@ -9,27 +9,28 @@ import WideButton from "../ui/WideButton";
 const HeroSection = () => {
   return (
     <m.div
-      initial={{ opacity: 0, y: 50, rotate: 10 }}
+      initial={{ opacity: 0, y: 160, rotate: 5 }}
       animate={{ opacity: 1, y: 0, rotate: 0 }}
-      transition={{ duration: 0.5, ease: "easeIn" }}
-      className="min-h-screen flex-col-center pt-10 relative"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="mt-20 flex-col-center py-10 px-4 relative"
       style={{
         backgroundImage: `url('/home/hero-image.jpg')`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="absolute inset-0 bg-black/70" />
       {/* main content */}
-      <div className="flex relative flex-col items-center justify-center pt-20 md:pt-8 p-4 text-white">
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[10rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
+      <div className="flex relative flex-col items-center justify-center md:pt-20 text-white">
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[8rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
           Do you have <br />
-          <span className="font-medium italic ">24 hours</span> of light?
+          <span className="font-bold ">24 hours</span> of light?
         </h1>
-        <p className="text-brandOrange text-center max-w-4xl xl:max-w-full font-semibold text-lg sm:text-2xl md:text-4xl mt-5">
+        <p className="text-brandOrange text-center max-w-4xl xl:max-w-full font-medium text-lg sm:text-xl md:text-2xl mt-5">
           No you don&apos;t. But you have us. We fix power problems for good
         </p>
         {/* services */}
-        <ul className="flex-center gap-5 text-base flex-wrap md:text-xl font-semibold mt-10">
+        <ul className="flex-center gap-3 text-sm flex-wrap md:text-base font-medium mt-3">
           <li>Solar installations</li>
           <li>•</li>
           <li>Maintenance</li>
@@ -37,12 +38,12 @@ const HeroSection = () => {
           <li>Solar generators</li>
         </ul>
         {/* CTA */}
-        <div className="mt-16">
+        <div className="mt-10">
           <WideButton variant="green" title="Get A Free Consultation" />
         </div>
         {/* social media icons */}
         <m.div
-          className="relative w-fit mx-auto"
+          className="relative mt-20 w-fit mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
