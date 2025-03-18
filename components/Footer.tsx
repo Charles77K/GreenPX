@@ -23,27 +23,19 @@ const Footer = () => {
   return (
     <div className="bg-black py-16 px-4 sm:px-8">
       {/* top section */}
-      <section className="flex-col-center text-center gap-2">
-        <m.h4
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.2}
-          className="text-white font-bold text-lg md:text-2xl"
-        >
+      <m.section
+        variants={motionVariants}
+        initial="hidden"
+        whileInView="visible"
+        custom={0.2}
+        className="flex-col-center text-center gap-2"
+      >
+        <m.h4 className="text-white font-bold text-lg md:text-2xl">
           Join 1,000+ Nigerians Getting Power Tips, Discounts, and Solar Hacks
         </m.h4>
-        <m.p
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.4}
-          className="text-[#BDBDBD] text-sm md:text-lg font-medium"
-        >
+        <p className="text-[#BDBDBD] text-sm md:text-lg font-medium">
           Get free updates and exclusive offers. We won&apos;t spam you🙂
-        </m.p>
+        </p>
         <form className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-1/2">
           <input
             value={email}
@@ -63,21 +55,20 @@ const Footer = () => {
             Submit
           </button>
         </form>
-      </section>
+      </m.section>
 
       <Divider className="h-[0.5px] my-10" />
 
       {/* mid section */}
-      <section className="flex flex-col md:flex-row gap-4 md:gap-10 text-start justify-center">
+      <m.section
+        variants={motionVariants}
+        initial="hidden"
+        whileInView="visible"
+        custom={0.3}
+        className="flex flex-col md:flex-row gap-4 md:gap-10 text-start justify-center"
+      >
         {/* about */}
-        <m.div
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.3}
-          className="space-y-2"
-        >
+        <div className="space-y-2">
           <h2 className="text-brandFadeGreen font-medium text-base">About</h2>
           <p className="text-[#fff] text-xs md:text-sm max-w-xs">
             We design, build, and maintain solar systems that actually work—for
@@ -85,17 +76,10 @@ const Footer = () => {
             Just silent, affordable power that lets you live, work, and dream
             without limits.
           </p>
-        </m.div>
+        </div>
 
         {/* contact */}
-        <m.div
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.4}
-          className="space-y-2"
-        >
+        <div className="space-y-2">
           <h2 className="text-brandFadeGreen font-medium text-base">Contact</h2>
           <ul className="text-[#fff] space-y-2 text-xs md:text-sm max-w-sm">
             <li className="flex items-center gap-2">
@@ -109,57 +93,43 @@ const Footer = () => {
               </p>
             </li>
           </ul>
-        </m.div>
+        </div>
 
         {/* address */}
-        <m.div
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.5}
-          className="space-y-2"
-        >
+        <div className="space-y-2">
           <h2 className="text-brandFadeGreen font-medium text-base">Address</h2>
           <p className="text-[#fff] text-xs md:text-sm max-w-sm">
             23 Bedwell Street, Calabar,
             <br /> Cross River State
           </p>
-        </m.div>
-      </section>
+        </div>
+      </m.section>
 
       <Divider className="h-[0.5px] my-10" />
 
       {/* bottom section */}
-      <section className="flex md:flex-row flex-col justify-between gap-4 md:gap-6 text-center">
-        <div className="hidden md:block"></div>
+      <m.section
+        variants={motionVariants}
+        initial="hidden"
+        whileInView="visible"
+        custom={0.4}
+        className="flex flex-col md:flex-row justify-between items-center"
+      >
+        <div className="hidden md:block text-black w-[100px]"></div>
 
-        <m.div
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.6}
-        >
+        <div>
           <p className="text-brandGray text-xs mb-2">
             Do you Have 24 Hours of Light? Let&apos;s Make it Happen.
           </p>
           <p className="text-[#fff] text-sm font-medium md:text-base">
             &copy; 2022 Green Potentia Limited, {new Date().getFullYear()}
           </p>
-        </m.div>
+        </div>
 
         <Divider className="h-[0.5px] my-4 block md:hidden" />
 
         {/* nigeria logo */}
-        <m.div
-          variants={motionVariants}
-          viewport={{ once: true }}
-          initial="hidden"
-          whileInView="visible"
-          custom={0.6}
-          className="flex text-white items-center justify-center gap-2"
-        >
+        <m.div className="flex text-white items-center gap-2">
           <p className="font-medium text-sm md:text-base">
             Proudly <br /> Nigerian
           </p>
@@ -170,7 +140,7 @@ const Footer = () => {
             height={60}
           />
         </m.div>
-      </section>
+      </m.section>
     </div>
   );
 };
