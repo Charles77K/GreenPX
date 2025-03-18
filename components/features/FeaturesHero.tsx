@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import WideButton from "../ui/WideButton";
 import { MILESTONES } from "../home/static";
 import Milestones from "../home/Milestones";
+import { motion as m } from "motion/react";
 
 const FeaturesHero = () => {
   return (
@@ -17,7 +20,12 @@ const FeaturesHero = () => {
       {/* Main content wrapper */}
       <div className="relative w-full flex flex-col items-center justify-between pt-20 flex-grow z-10">
         {/* Hero content */}
-        <main className="flex flex-col items-center max-w-4xl mx-auto mb-16 md:mb-24">
+        <m.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center max-w-4xl mx-auto mb-16 md:mb-24"
+        >
           <h3 className="text-brandGray bg-brandOrange w-fit rounded-full p-1 text-xs">
             Introducing our Flagship Product
           </h3>
@@ -38,21 +46,40 @@ const FeaturesHero = () => {
             variant="green"
             className="text-xs md:text-xs mt-5"
           />
-        </main>
+        </m.div>
 
         {/* Milestones section */}
-        <div className="relative w-fit mx-auto">
+        <m.div
+          className="relative w-fit mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+            delay: 0.3, // Slight delay after the hero content animates
+          }}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 items-start gap-4 md:gap-10 p-4 md:p-6 rounded-2xl bg-[#FFFFFF1A]">
-            {MILESTONES.map((milestone) => (
-              <Milestones
-                className="flex flex-col items-start"
-                number={milestone.number}
-                description={milestone.description}
+            {MILESTONES.map((milestone, index) => (
+              <m.div
                 key={milestone.number}
-              />
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: 0.4 + index * 0.1, // Staggered delay for each milestone
+                }}
+              >
+                <Milestones
+                  className="flex flex-col items-start"
+                  number={milestone.number}
+                  description={milestone.description}
+                />
+              </m.div>
             ))}
           </div>
-        </div>
+        </m.div>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import {
   HowToUse,
   ImageBackground,
   KeyFeatures,
+  PlaceOrder,
 } from "@/components/features";
 import React from "react";
 
@@ -13,6 +14,7 @@ const page = () => {
       <KeyFeatures />
       <ImageBackground />
       <HowToUse />
+      <PlaceOrder />
     </div>
   );
 };

@@ -42,22 +42,35 @@ const HeroSection = () => {
         </div>
         {/* social media icons */}
         <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1, ease: [0.6, 0.0, 0.3, 1], delay: 0.3 },
+          className="relative w-fit mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+            delay: 0.3, // Slight delay after the hero content animates
           }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 mt-20"
         >
-          {MILESTONES.map(({ number, description }) => (
-            <Milestones
-              number={number}
-              description={description}
-              key={number}
-            />
-          ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 items-start gap-4 md:gap-10 p-4 md:p-6 rounded-2xl bg-[#FFFFFF1A]">
+            {MILESTONES.map((milestone, index) => (
+              <m.div
+                key={milestone.number}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: 0.4 + index * 0.1, // Staggered delay for each milestone
+                }}
+              >
+                <Milestones
+                  className="flex flex-col items-start"
+                  number={milestone.number}
+                  description={milestone.description}
+                />
+              </m.div>
+            ))}
+          </div>
         </m.div>
       </div>
     </m.div>
