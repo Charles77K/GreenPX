@@ -76,7 +76,7 @@ const InfiniteScrollTestimonial = ({
       );
       containerRef.current.style.setProperty(
         "--animation-name",
-        isMobile ? "scrollVertical" : "scroll"
+        isMobile ? "scrollVertical" : "scrollHorizontal"
       );
     }
   };
@@ -117,7 +117,7 @@ const InfiniteScrollTestimonial = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller z-20 max-w-full mx-auto flex-col-center overflow-hidden",
+        "relative z-20 max-w-full flex-col-center overflow-hidden",
         isMobile
           ? "[mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
           : "[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]",
@@ -129,12 +129,13 @@ const InfiniteScrollTestimonial = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          `flex min-w-full shrink-0 gap-4 w-max flex-nowrap`,
-          isMobile ? "flex-col max-h-screen" : "flex-row",
-          start && "animate-auto-scroll"
+          `flex shrink-0 gap-4 w-full md:w-max p-0 flex-nowrap`,
+          isMobile
+            ? "flex-col max-h-screen vertical-scroll-animation"
+            : "flex-row horizontal-scroll-animation"
         )}
       >
-        {children}
+        {start && children}
       </ul>
     </div>
   );

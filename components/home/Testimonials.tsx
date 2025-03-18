@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <div className="text-black py-20 p-20 flex-col-center mx-auto overflow-hidden w-full">
+    <div className="text-black py-20 px-4 flex-col-center overflow-hidden w-full">
       <section className="flex-col-center gap-5">
         <Line color="bg-brandGreen" />
         <h4 className="text-5xl font-medium text-center">
@@ -18,7 +18,7 @@ const Testimonials = () => {
         </p>
       </section>
 
-      <InfiniteScrollTestimonial speed="normal" className="mt-10">
+      <InfiniteScrollTestimonial speed="normal" className="mt-10 ">
         <TestimonialCard
           title="Hassan AI"
           comment="Green Potentia has transformed 
@@ -37,8 +37,9 @@ const Testimonials = () => {
           <Image
             src={"/home/user-1.png"}
             alt="user-icon-1"
+            className="w-full h-auto"
             width={350}
-            height={200}
+            height={350}
           />
         </li>
 
@@ -61,7 +62,7 @@ const Testimonials = () => {
             src={"/home/user-3.png"}
             alt="user-icon-1"
             width={350}
-            height={200}
+            height={350}
             className="rounded-[2rem]"
           />
         </li>
@@ -85,7 +86,7 @@ const Testimonials = () => {
             src={"/home/user-2.png"}
             alt="user-icon-1"
             width={350}
-            height={200}
+            height={350}
           />
         </li>
       </InfiniteScrollTestimonial>
@@ -113,7 +114,7 @@ const Testimonials = () => {
             src={"/home/user-1.png"}
             alt="user-icon-1"
             width={350}
-            height={200}
+            height={350}
           />
         </li>
 
@@ -136,7 +137,7 @@ const Testimonials = () => {
             src={"/home/user-3.png"}
             alt="user-icon-1"
             width={350}
-            height={200}
+            height={350}
             className="rounded-[2rem]"
           />
         </li>
@@ -160,7 +161,7 @@ const Testimonials = () => {
             src={"/home/user-2.png"}
             alt="user-icon-1"
             width={350}
-            height={200}
+            height={350}
           />
         </li>
       </InfiniteScrollTestimonial>

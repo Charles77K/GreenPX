@@ -62,10 +62,13 @@ h3 {
   z-index: 1000;
 }
 
-/* Mobile-specific animation adjustments */
-@media (max-width: 767px) {
-  .scroller .animate-auto-scroll {
-    animation-name: scrollVertical;
+/* Animations for horizontal and vertical scrolling */
+@keyframes scrollHorizontal {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -78,16 +81,24 @@ h3 {
   }
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.horizontal-scroll-animation {
+  animation: var(--animation-name, scrollHorizontal)
+    var(--animation-duration, 40s) linear infinite;
+  animation-direction: var(--animation-direction, forwards);
+  transition: animation-duration 0.8s ease;
 }
 
-.animate-auto-scroll {
-  animation: var(--animation-name) var(--animation-duration) linear infinite;
+.vertical-scroll-animation {
+  animation: var(--animation-name, scrollVertical)
+    var(--animation-duration, 40s) linear infinite;
   animation-direction: var(--animation-direction, forwards);
+  transition: animation-duration 0.8s ease;
+}
+
+/* Make sure the container respects height on mobile */
+@media (max-width: 767px) {
+  .vertical-scroll-animation {
+    max-height: 80vh;
+    height: auto;
+  }
 }
