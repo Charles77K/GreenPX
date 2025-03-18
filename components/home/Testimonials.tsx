@@ -17,24 +17,8 @@ const Testimonials = () => {
           clean energy today!
         </p>
       </section>
-      {/* <section className="flex flex-col items-center gap-5">
-        <li>
-          <Image
-            src={"/home/user-1.png"}
-            alt="user-icon-1"
-            width={200}
-            height={200}
-          />
-        </li>
-        <TestimonialCard
-          title="Hassan AI"
-          comment="Green Potentia has transformed 
-          our energy use. The GreenPX unit is 
-          reliable, affordable, and perfect for 
-          our needs."
-        />
-      </section> */}
-      <InfiniteScrollTestimonial speed="normal">
+
+      <InfiniteScrollTestimonial speed="normal" className="mt-10">
         <TestimonialCard
           title="Hassan AI"
           comment="Green Potentia has transformed 

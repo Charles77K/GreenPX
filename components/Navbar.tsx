@@ -10,9 +10,9 @@ import MobileNavbar from "./MobileNavbar";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "GreenPX", href: "/features" },
   { label: "Marketplace", href: "/marketplace" },
+  { label: "About", href: "/about" },
+  { label: "GreenPX", href: "/greenpx" },
 ];
 
 const Navbar = () => {

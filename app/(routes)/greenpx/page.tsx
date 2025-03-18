@@ -5,9 +5,10 @@ import {
   KeyFeatures,
   PlaceOrder,
 } from "@/components/features";
+import { Testimonials } from "@/components/home";
 import React from "react";
 
-const page = () => {
+const GreenPX = () => {
   return (
     <div>
       <FeaturesHero />
@@ -15,8 +16,9 @@ const page = () => {
       <ImageBackground />
       <HowToUse />
       <PlaceOrder />
+      <Testimonials />
     </div>
   );
 };
 
-export default page;
+export default GreenPX;
