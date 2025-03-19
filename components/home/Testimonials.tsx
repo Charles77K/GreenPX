@@ -37,7 +37,6 @@ const Testimonials = () => {
           <Image
             src={"/home/user-1.png"}
             alt="user-icon-1"
-            className="w-full h-auto"
             width={350}
             height={350}
           />

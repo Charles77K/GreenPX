@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import WideButton from "../ui/WideButton";
 import HorizontalScroll from "./HorizontalScroll";
+import ArrowRight from "../ui/ArrowRight";
 
 interface IProductCard {
   price: string;
@@ -25,7 +25,7 @@ const ProductCard: React.FC<IProductCard> = ({
   categories,
 }) => {
   return (
-    <div className="p-4 max-w-md border border-brandGray/40">
+    <div className="p-4 w-full border border-brandGray/40">
       {/* headers with price  */}
       <div className="flex-between mb-4">
         <p className="bg-brandFadeGreen/30 text-brandGreen px-2 py-1">
@@ -77,12 +77,11 @@ const ProductCard: React.FC<IProductCard> = ({
           ))}
         </HorizontalScroll>
         {/* order button */}
-        <div>
-          <WideButton
-            title="Place An Order"
-            className="md:px-6 px-6 text-sm md:py-3"
-            variant="black"
-          />
+        <div className="group bg-black px-6 cursor-pointer rounded-xl text-sm py-3 text-white flex items-center gap-4 transition-all ease-in-out duration-300 hover:pr-10 relative">
+          <p>Place An Order</p>
+          <p className="absolute opacity-0 transform translate-x-0 group-hover:opacity-100 group-hover:translate-x-3 transition-all ease-in-out duration-300 right-4">
+            <ArrowRight color="white" height="20" width="20" />
+          </p>
         </div>
       </section>
     </div>

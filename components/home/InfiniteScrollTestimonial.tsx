@@ -36,24 +36,14 @@ const InfiniteScrollTestimonial = ({
 
   const addAnimation = () => {
     if (containerRef.current && scrollerRef.current) {
-      const originalChildren = Array.from(scrollerRef.current.children).slice(
-        0,
-        React.Children.count(children)
-      );
+      const scrollerContent = Array.from(scrollerRef.current.children);
 
-      scrollerRef.current.innerHTML = "";
-
-      originalChildren.forEach((item) => {
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
         if (scrollerRef.current) {
-          scrollerRef.current.appendChild(item.cloneNode(true));
+          scrollerRef.current.appendChild(duplicatedItem);
         }
       });
-      originalChildren.forEach((item) => {
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(item.cloneNode(true));
-        }
-      });
-
       getDirection();
       getSpeed();
       setStart(true);
@@ -135,7 +125,7 @@ const InfiniteScrollTestimonial = ({
             : "flex-row horizontal-scroll-animation"
         )}
       >
-        {start && children}
+        {children}
       </ul>
     </div>
   );
