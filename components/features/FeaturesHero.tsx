@@ -18,7 +18,7 @@ const FeaturesHero = () => {
       <div className="absolute inset-0 bg-black/65" aria-hidden="true" />
 
       {/* Main content wrapper */}
-      <div className="relative w-full flex flex-col items-center justify-between pt-28 md:pt-40 flex-grow z-10">
+      <div className="relative w-full flex flex-col items-center justify-between pt-10 md:pt-20 flex-grow z-10">
         {/* Hero content */}
         <m.div
           initial={{ opacity: 0, y: 60 }}
