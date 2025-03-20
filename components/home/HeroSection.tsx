@@ -12,7 +12,7 @@ const HeroSection = () => {
       initial={{ opacity: 0, y: 130, rotate: 5 }}
       animate={{ opacity: 1, y: 0, rotate: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mt-20 flex-col-center py-10 md:py-16 lg:py-20 px-4 md:px-8 lg:px-12 relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] max-h-screen"
+      className="flex-col-center py-10 md:py-16 lg:py-20 px-4 md:px-8 lg:px-12 relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] max-h-screen"
       style={{
         backgroundImage: `url('/home/hero-image.jpg')`,
         backgroundSize: "cover",
