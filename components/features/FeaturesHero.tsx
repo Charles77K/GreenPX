@@ -9,7 +9,7 @@ import { motion as m } from "motion/react";
 const FeaturesHero = () => {
   return (
     <div
-      className="relative text-white flex flex-col px-4 items-center py-16 bg-cover bg-center justify-between"
+      className="relative text-white flex flex-col px-4 items-center py-10 md:py-16 lg:py-20 bg-cover  min-h-[600px] md:min-h-[700px] lg:min-h-[800px] max-h-screen bg-center justify-between"
       style={{
         backgroundImage: `url(/features/features-hero.jpeg)`,
       }}

@@ -40,6 +40,9 @@ h3 {
   .flex-col-start {
     @apply flex flex-col items-start;
   }
+  .responsive-container {
+    @apply container mx-auto max-w-screen-2xl;
+  }
 }
 
 .font-outfit {
