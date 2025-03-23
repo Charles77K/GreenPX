@@ -4,9 +4,11 @@ import React from "react";
 import Divider from "./ui/Divider";
 import { CiMail } from "react-icons/ci";
 import { LuPhone } from "react-icons/lu";
+import { PiMapPinAreaBold } from "react-icons/pi";
 import Image from "next/image";
-
 import { motion as m } from "framer-motion";
+import Link from "next/link";
+import { FOOTER_LINKS, SOCIAL_MEDIA_LINKS } from "./static";
 
 const motionVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -21,7 +23,7 @@ const Footer = () => {
   const [email, setEmail] = React.useState<string>("");
 
   return (
-    <div className="bg-black py-16 px-4 sm:px-8">
+    <footer className="bg-black py-16 px-4 sm:px-8">
       {/* top section */}
       <m.section
         variants={motionVariants}
@@ -36,7 +38,7 @@ const Footer = () => {
         <p className="text-[#BDBDBD] text-sm md:text-lg font-medium">
           Get free updates and exclusive offers. We won&apos;t spam you🙂
         </p>
-        <form className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-1/2">
+        <form className="flex flex-col md:flex-row gap-2 md:gap-4 w-full max-w-2xl">
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -65,12 +67,12 @@ const Footer = () => {
         initial="hidden"
         whileInView="visible"
         custom={0.3}
-        className="flex flex-col md:flex-row gap-4 md:gap-10 text-start justify-center"
+        className="flex flex-col md:flex-row gap-4 md:gap-10 text-start max-w-6xl mx-auto justify-between"
       >
         {/* about */}
         <div className="space-y-2">
           <h2 className="text-brandFadeGreen font-medium text-base">About</h2>
-          <p className="text-[#fff] text-xs md:text-sm max-w-xs">
+          <p className="text-[#fff] text-xs md:text-sm max-w-sm">
             We design, build, and maintain solar systems that actually work—for
             homes, businesses, and communities. No empty promises. No shortcuts.
             Just silent, affordable power that lets you live, work, and dream
@@ -78,30 +80,48 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* contact */}
-        <div className="space-y-2">
+        {/* address */}
+        <div className="space-y-3">
           <h2 className="text-brandFadeGreen font-medium text-base">Contact</h2>
-          <ul className="text-[#fff] space-y-2 text-xs md:text-sm max-w-sm">
+          <ul className="text-[#fff] space-y-3 text-sm max-w-sm">
             <li className="flex items-center gap-2">
               <CiMail color="white" />
               info@greenpotentia.com
             </li>
             <li className="flex items-start gap-2">
               <LuPhone color="white" />
-              <p className="max-w-[14rem]">
-                0813 937 2222, 0706 505 1560, 0705 885 0322
-              </p>
+              <p className="">0813 937 2222, 0706 505 1560, 0705 885 0322</p>
             </li>
+            <p className="flex items-start gap-2">
+              <PiMapPinAreaBold size={15} />
+              23 Bedwell Street, Calabar,
+              <br /> Cross River State
+            </p>
           </ul>
         </div>
 
-        {/* address */}
+        {/* quick links */}
         <div className="space-y-2">
-          <h2 className="text-brandFadeGreen font-medium text-base">Address</h2>
-          <p className="text-[#fff] text-xs md:text-sm max-w-sm">
-            23 Bedwell Street, Calabar,
-            <br /> Cross River State
-          </p>
+          <h2 className="text-brandFadeGreen font-medium text-base">Links</h2>
+          <nav className="flex flex-col text-sm text-white items-start gap-3">
+            {FOOTER_LINKS.map(({ label, href }) => (
+              <Link key={label} href={href}>
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* social media */}
+        <div className="space-y-2">
+          <h2 className="text-brandFadeGreen font-medium text-base">Follow</h2>
+          <nav className="flex flex-col text-sm text-white items-start gap-3">
+            {SOCIAL_MEDIA_LINKS.map(({ icon, href }) => (
+              <Link key={href} href={href}>
+                {icon}
+              </Link>
+            ))}
+          </nav>
         </div>
       </m.section>
 
@@ -141,7 +161,7 @@ const Footer = () => {
           />
         </m.div>
       </m.section>
-    </div>
+    </footer>
   );
 };
 
