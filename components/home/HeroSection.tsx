@@ -5,6 +5,7 @@ import { MILESTONES } from "./static";
 import Milestones from "./Milestones";
 import { motion as m } from "motion/react";
 import WideButton from "../ui/WideButton";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -12,7 +13,7 @@ const HeroSection = () => {
       initial={{ opacity: 0, y: 130, rotate: 5 }}
       animate={{ opacity: 1, y: 0, rotate: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex-col-center py-10 md:py-16 lg:py-20 px-4 md:px-8 lg:px-12 relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] max-h-screen"
+      className="flex-col-center py-10 md:py-16 px-4 md:px-8 lg:px-12 relative min-h-screen"
       style={{
         backgroundImage: `url('/home/hero-image.jpg')`,
         backgroundSize: "cover",
@@ -21,16 +22,16 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0 bg-black/70" />
       {/* main content */}
-      <div className="flex relative flex-col items-center justify-center md:pt-20 text-white max-w-[1800px] mx-auto">
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] 2xl:text-[7.5rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
+      <div className="flex relative flex-col items-center justify-center pt-20 text-white max-w-[1800px] mx-auto">
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] 2xl:text-[10rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
           Do you have <br />
           <span className="font-bold ">24 hours</span> of light?
         </h1>
-        <p className="text-brandOrange text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl font-medium text-lg sm:text-xl md:text-2xl mt-5">
+        <p className="text-brandOrange text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl font-medium text-lg sm:text-xl md:text-2xl 2xl:text-4xl mt-5">
           No you don&apos;t. But you have us. We fix power problems for good
         </p>
         {/* services */}
-        <ul className="flex-center gap-3 text-sm flex-wrap md:text-base font-medium mt-3">
+        <ul className="flex-center gap-3 text-sm lg:text-base 2xl:text-2xl flex-wrap md:text-base font-medium mt-4">
           <li>Solar installations</li>
           <li>•</li>
           <li>Maintenance</li>
@@ -41,6 +42,9 @@ const HeroSection = () => {
         <div className="mt-10">
           <WideButton variant="green" title="Get A Free Consultation" />
         </div>
+        <Link href={"/marketplace"} className="md:hidden flex mt-10">
+          <WideButton variant="black" title="Visit Our MarketPlace" />
+        </Link>
         {/* social media icons */}
         <m.div
           className="relative mt-20 xl:mt-24 2xl:mt-32 w-fit mx-auto"
@@ -52,7 +56,7 @@ const HeroSection = () => {
             delay: 0.3, // Slight delay after the hero content animates
           }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 items-start gap-4 md:gap-10 p-4 md:p-6 rounded-2xl bg-[#FFFFFF1A] max-w-screen-xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 items-start gap-10 md:gap-10 xl:gap-20 p-4 md:p-6 rounded-2xl bg-[#FFFFFF1A] max-w-screen-xl mx-auto">
             {MILESTONES.map((milestone, index) => (
               <m.div
                 key={milestone.number}

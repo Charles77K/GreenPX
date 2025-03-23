@@ -19,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${onest.variable} ${outfit.variable} antialiased responsive-container`}
-      >
+      <body className={`${onest.variable} ${outfit.variable} antialiased`}>
         <Navbar />
         {children}
         <Footer />

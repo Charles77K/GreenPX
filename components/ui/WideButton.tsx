@@ -20,7 +20,7 @@ const WideButton = ({
   return (
     <button
       className={cn(
-        `text-sm md:text-base font-semibold py-4 px-8 md:py-6 md:px-12 rounded-2xl ${variants[variant]}`,
+        `text-sm md:text-base font-semibold py-6 px-8 md:py-8 md:px-12 rounded-2xl ${variants[variant]}`,
         className
       )}
     >
