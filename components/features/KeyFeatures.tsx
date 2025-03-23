@@ -4,8 +4,10 @@ import FeatureItem from "./FeatureItem";
 
 const KeyFeatures = () => {
   return (
-    <div className="flex-col-center py-12 bg-brandFadeBlue px-4">
-      <h2 className="text-5xl font-semibold">Features</h2>
+    <div className="flex-col-center py-12 md:py-20 bg-brandFadeBlue px-4">
+      <h2 className="text-5xl xl:text-6xl 2xl:text-7xl font-semibold">
+        Features
+      </h2>
       <ul className="mt-10 grid grid-cols-2 items-start gap-10 md:grid-cols-3">
         {FEATURES_ITEMS.map((item, idx) => (
           <FeatureItem key={idx} {...item} />
