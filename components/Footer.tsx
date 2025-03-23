@@ -23,7 +23,7 @@ const Footer = () => {
   const [email, setEmail] = React.useState<string>("");
 
   return (
-    <footer className="bg-black py-16 px-4 sm:px-8">
+    <footer className="bg-black py-16 px-8">
       {/* top section */}
       <m.section
         variants={motionVariants}
@@ -67,11 +67,11 @@ const Footer = () => {
         initial="hidden"
         whileInView="visible"
         custom={0.3}
-        className="flex flex-col md:flex-row gap-4 md:gap-10 text-start max-w-6xl mx-auto justify-between"
+        className="flex flex-col md:flex-row gap-10 text-start max-w-6xl mx-auto justify-between"
       >
         {/* about */}
         <div className="space-y-2">
-          <h2 className="text-brandFadeGreen font-medium text-base">About</h2>
+          <h2 className="text-brandFadeGreen font-medium text-sm">About</h2>
           <p className="text-[#fff] text-xs md:text-sm max-w-sm">
             We design, build, and maintain solar systems that actually work—for
             homes, businesses, and communities. No empty promises. No shortcuts.
@@ -82,7 +82,7 @@ const Footer = () => {
 
         {/* address */}
         <div className="space-y-3">
-          <h2 className="text-brandFadeGreen font-medium text-base">Contact</h2>
+          <h2 className="text-brandFadeGreen font-medium text-sm">Contact</h2>
           <ul className="text-[#fff] space-y-3 text-sm max-w-sm">
             <li className="flex items-center gap-2">
               <CiMail color="white" />
@@ -102,7 +102,7 @@ const Footer = () => {
 
         {/* quick links */}
         <div className="space-y-2">
-          <h2 className="text-brandFadeGreen font-medium text-base">Links</h2>
+          <h2 className="text-brandFadeGreen font-medium text-sm">Links</h2>
           <nav className="flex flex-col text-sm text-white items-start gap-3">
             {FOOTER_LINKS.map(({ label, href }) => (
               <Link key={label} href={href}>
@@ -114,7 +114,7 @@ const Footer = () => {
 
         {/* social media */}
         <div className="space-y-2">
-          <h2 className="text-brandFadeGreen font-medium text-base">Follow</h2>
+          <h2 className="text-brandFadeGreen font-medium text-sm">Follow</h2>
           <nav className="flex flex-col text-sm text-white items-start gap-3">
             {SOCIAL_MEDIA_LINKS.map(({ icon, href }) => (
               <Link key={href} href={href}>
