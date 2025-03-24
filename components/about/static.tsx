@@ -1,4 +1,11 @@
 import { MdGroups } from "react-icons/md";
+import {
+  DirectionIcon,
+  EnergyIcon,
+  SpeakerIcon,
+  UserIcon,
+} from "@/components/about/Icon";
+import {IFoundersItemProps} from "@/components/about/FoundersItem";
 
 export const VALUES_CARD_CONTENT = [
   {
@@ -89,4 +96,47 @@ export const VALUES_CARD_CONTENT = [
     description:
       "We make renewable energy affordable and accessible, empowering homes, businesses, and communities. By driving energy independence and sustainability, we’re fueling economic growth and improving lives across Nigeria.",
   },
+];
+
+export const WHY_CHOOSE_US = [
+  {
+    icon: <EnergyIcon />,
+    title: "Reliable Solar Generators",
+    description:
+      "Power your home, office, or business without depending on the unstable grid.",
+  },
+  {
+    icon: <SpeakerIcon />,
+    title: "Noiseless, Pollution-Free Energy",
+    description: "Say goodbye to fuel expenses, fumes, and noise pollution",
+  },
+  {
+    icon: <DirectionIcon />,
+    title: "Portable & Scalable Solutions",
+    description:
+      "Easy-to-use, plug-and-play systems that grow with your needs.",
+  },
+  {
+    icon: <UserIcon />,
+    title: "Expertise You Can Trust",
+    description:
+      "Our team of engineers and energy experts ensure top quality servive and support.",
+  },
+];
+
+export const FOUNDERS:IFoundersItemProps[] = [
+  {
+    imageUrl: "/about/paul-okim.png",
+    name: "Paul Okim",
+    role: "Founder and CEO",
+    description:
+      "Paul Okim is the visionary behind Green Potentia, combining expertise in electronic design, system analysis, and innovation to drive the company’s growth. His strategic leadership ensures operational excellence, business expansion, and a relentless focus on sustainable energy solutions. Known for inspiring teams and stakeholders alike, Paul’s clear vision and commitment to innovation keep Green Potentia at the forefront of clean energy.",
+  },
+  {
+    imageUrl: "/about/bekwa.png",
+    name: "Bekwapu Undie",
+    role: "Co-Founder and Director, Hardware and Digital Product Design",
+    description:
+      "Bekwapu Undie leads Green Potentia’s hardware and digital product design, combining expertise in CAD modeling, 3D printing, and UX design to create innovative, user-friendly solutions. His focus on cutting-edge technology and practical design ensures our products meet customer needs with efficiency and reliability.",
+  }
 ];
