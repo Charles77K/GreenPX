@@ -79,7 +79,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="font-bold bg-brandGreen text-white rounded-2xl text-sm lg:text-md px-4 md:px-5 lg:px-8 py-3.5"
+            className="font-bold bg-brandGreen hover:bg-black hover:text-brandOrange transition-colors duration-300 ease-in-out text-white rounded-2xl text-sm lg:text-md px-4 md:px-5 lg:px-8 py-3.5"
           >
             Contact Us
           </Link>

@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div className="flex relative flex-col items-center justify-center pt-20 text-white max-w-[1800px] mx-auto">
         <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] 2xl:text-[10rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
           Do you have <br />
-          <span className="font-bold ">24 hours</span> of light?
+          <span className="font-bold ">24 hours</span> of power?
         </h1>
         <p className="text-brandOrange text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl font-medium text-lg sm:text-xl md:text-2xl 2xl:text-4xl mt-5">
           No you don&apos;t. But you have us. We fix power problems for good
