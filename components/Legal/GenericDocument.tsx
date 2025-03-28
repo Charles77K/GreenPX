@@ -2,7 +2,7 @@ import React from "react";
 import Divider from "../ui/Divider";
 import { Calendar, Clock } from "lucide-react";
 
-interface IGenericDocument {
+export interface IGenericDocument {
   header: string;
   date_updated: string;
   current_date: string;
