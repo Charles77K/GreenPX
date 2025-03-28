@@ -5,7 +5,7 @@ import { FAQs } from "./static";
 import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Faqs = () => {
+const Faqs = ({header}:{header?:string}) => {
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
 
   const toggleQuestion = (id: number) => {
@@ -14,6 +14,8 @@ const Faqs = () => {
 
   return (
     <div className="flex flex-col items-center py-20 px-4 md:px-6">
+        {header &&  (
+
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -21,8 +23,9 @@ const Faqs = () => {
         viewport={{ once: true }}
         className="text-4xl text-center md:text-6xl font-bold text-[#333] mb-12"
       >
-        FAQs
+          {header}
       </motion.h2>
+        )}
 
       <ul className="flex flex-col gap-5 w-full md:max-w-6xl">
         {FAQs.map(({ id, question, answer }) => (

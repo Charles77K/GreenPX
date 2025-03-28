@@ -18,7 +18,7 @@ export default function Home() {
       <WhatWeDo />
       <ProblemSolving />
       <Testimonials />
-      <Faqs />
+      <Faqs header={'FAQs'}/>
 
       {/* orange cursor appearing only on the home page */}
       <Cursor />
