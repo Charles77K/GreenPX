@@ -3,6 +3,10 @@ import React from "react";
 import ProductCard from "@/components/marketplace/ProductCard";
 import { PRODUCT_CARD_ITEM } from "@/components/marketplace/static";
 import ProductBottomCard from "@/components/marketplace/ProductBottomCard";
+import { Metadata } from "next";
+import { metadataConfig } from "@/app/metadata";
+
+export const metadata: Metadata = metadataConfig.marketplace;
 
 const page = () => {
   return (

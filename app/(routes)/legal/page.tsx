@@ -1,5 +1,9 @@
 import LegalTabs from "@/components/Legal/LegalTabs";
 import React from "react";
+import { Metadata } from "next";
+import { metadataConfig } from "@/app/metadata";
+
+export const metadata: Metadata = metadataConfig.legal;
 
 const Legal = () => {
   return (
