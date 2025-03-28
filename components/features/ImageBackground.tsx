@@ -1,15 +1,17 @@
+import Image from "next/image";
 import React from "react";
 
 const ImageBackground = () => {
   return (
-    <div
-      className="min-h-[80vh] md:min-h-screen"
-      style={{
-        backgroundImage: "url(/features/features-image.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    />
+    <div className="min-h-[80vh] relative md:min-h-screen">
+      <Image
+        src="/features/features-image.png"
+        alt="Hero Background"
+        fill
+        className="object-cover"
+        priority
+      />
+    </div>
   );
 };
 

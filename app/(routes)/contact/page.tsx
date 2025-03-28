@@ -4,6 +4,10 @@ import { CiMail } from "react-icons/ci";
 import { LuPhone } from "react-icons/lu";
 import { PiMapPinAreaBold } from "react-icons/pi";
 import ContactForm from "@/components/contact/ContactForm";
+import { Metadata } from "next";
+import { metadataConfig } from "@/app/metadata";
+
+export const metadata: Metadata = metadataConfig.contact;
 
 const page = () => {
   return (

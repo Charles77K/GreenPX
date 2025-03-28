@@ -5,15 +5,20 @@ import WideButton from "../ui/WideButton";
 import { MILESTONES } from "../home/static";
 import Milestones from "../home/Milestones";
 import { motion as m } from "motion/react";
+import Image from "next/image";
 
 const FeaturesHero = () => {
   return (
-    <div
-      className="relative text-white flex flex-col px-4 items-center py-10 md:py-16 lg:py-20 bg-cover min-h-screen bg-center justify-between"
-      style={{
-        backgroundImage: `url(/features/features-hero.jpeg)`,
-      }}
-    >
+    <div className="relative text-white flex flex-col px-4 items-center py-10 md:py-16 lg:py-20 min-h-screen justify-between">
+      {/* Background Image */}
+      <Image
+        src="/features/features-hero.jpeg"
+        alt="Hero Background"
+        fill
+        className="object-cover"
+        priority
+      />
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
 

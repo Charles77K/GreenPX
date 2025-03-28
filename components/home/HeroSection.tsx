@@ -6,6 +6,7 @@ import Milestones from "./Milestones";
 import { motion as m } from "motion/react";
 import WideButton from "../ui/WideButton";
 import Link from "next/link";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -14,12 +15,16 @@ const HeroSection = () => {
       animate={{ opacity: 1, y: 0, rotate: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex-col-center py-10 md:py-16 px-4 md:px-8 lg:px-12 relative min-h-screen"
-      style={{
-        backgroundImage: `url('/home/hero-image.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
+      {/* Background Image */}
+      <Image
+        src="/home/hero-image.jpg"
+        alt="Hero Background"
+        fill
+        className="object-cover"
+        priority
+      />
+
       <div className="absolute inset-0 bg-black/70" />
       {/* main content */}
       <div className="flex relative flex-col items-center justify-center pt-20 text-white max-w-[1800px] mx-auto">
