@@ -175,7 +175,7 @@ export const PRODUCT_CARD_ITEM: Product[] = [
       averageRating: 4.8,
       ratings: [
         {
-          name: "Michale O",
+          name: "Michale O.",
           avatar: "/marketplace/Michael.png",
           date: "28/10/2021",
           rating: 5,

@@ -9,19 +9,21 @@ import Image from "next/image";
 const Reviews = ({ currentProduct }: { currentProduct: Product }) => {
   return (
     <>
-      <section className="mt-10 px-10">
+      <section className="mt-10 md:px-10">
         {/* header */}
-        <header className="flex-between">
+        <header className="flex-between flex-wrap">
           <h1 className="text-xl md:text-2xl 2xl:text-4xl font-bold">
             Reviews
           </h1>
           <div className="p-2 border rounded-md border-brandGray/30">
-            <p className="text-sm font-medium">March 2021 - February 2022</p>
+            <p className="text-xs md:text-sm font-medium">
+              March 2021 - February 2022
+            </p>
           </div>
         </header>
 
         {/* total reviews , average rating and reviews count*/}
-        <div className="flex-between mt-10">
+        <div className="flex flex-col sm:flex-row md:justify-between gap-4 mt-10">
           {/* total reviews */}
           <div className="flex-col gap-2 flex">
             <p className="text-brandGray">Total Reviews</p>
@@ -51,24 +53,49 @@ const Reviews = ({ currentProduct }: { currentProduct: Product }) => {
 
           {/* reviews count */}
           <div className="space-y-2">
-            <ReviewsCount />
-            <ReviewsCount />
-            <ReviewsCount />
-            <ReviewsCount />
-            <ReviewsCount />
+            <ReviewsCount
+              count={5}
+              reviews={"2.4k"}
+              percentage={100}
+              variant="gold"
+            />
+            <ReviewsCount
+              count={4}
+              reviews={"1"}
+              percentage={10}
+              variant="gold"
+            />
+            <ReviewsCount
+              count={3}
+              reviews={"0"}
+              percentage={0}
+              variant="gray"
+            />
+            <ReviewsCount
+              count={2}
+              reviews={"0"}
+              percentage={0}
+              variant="gray"
+            />
+            <ReviewsCount
+              count={1}
+              reviews={"0"}
+              percentage={0}
+              variant="gray"
+            />
           </div>
         </div>
 
         <Divider className="my-12" />
 
         {/* user reviews */}
-        <div className="flex flex-col items-start gap-3">
+        <div className="flex flex-col items-start gap-6 w-full">
           {currentProduct?.reviews.ratings.map((item, idx) => (
-            <div key={idx}>
-              <div className="flex items-center gap-20">
-                <section className="flex items-start gap-4">
+            <div key={idx} className="w-full">
+              <div className="flex flex-col md:flex-row items-start gap-6 md:gap-10 w-full">
+                <section className="flex gap-4 md:min-w-[250px]">
                   {/* user image */}
-                  <div>
+                  <div className="flex-shrink-0">
                     <Image
                       src={item.avatar}
                       alt={item.name}
@@ -82,9 +109,9 @@ const Reviews = ({ currentProduct }: { currentProduct: Product }) => {
                       {item.name}
                     </p>
                     {/* date */}
-                    <p className="text-sm text-gray-600">{item.date}</p>
+                    <p className="text-sm text-gray-600 mt-1">{item.date}</p>
                     {/* rating */}
-                    <ul className="flex items-center gap-[2px]">
+                    <ul className="flex items-center gap-[2px] mt-2">
                       {Array.from({
                         length: Number(item.rating),
                       }).map((_, index) => (
@@ -93,11 +120,15 @@ const Reviews = ({ currentProduct }: { currentProduct: Product }) => {
                     </ul>
                   </div>
                 </section>
-                <section className="">
-                  <p className="text-brandGray max-w-xl">{item.review}</p>
+                <section className="w-full">
+                  <p className="text-brandGray text-sm md:text-base max-w-lg">
+                    {item.review}
+                  </p>
                 </section>
               </div>
-              <Divider className="my-12 w-full" />
+              {idx < currentProduct.reviews.ratings.length - 1 && (
+                <Divider className="my-6 md:my-10 w-full" />
+              )}
             </div>
           ))}
         </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { ArrowLeft } from "./Icons";
 import Image from "next/image";
@@ -31,19 +33,28 @@ export interface Product {
   };
 }
 
+export const sendMessage = (title: string) => {
+  const phoneNumber = "2347065051560";
+  const message = encodeURIComponent(
+    `Hello, I'm Interested in buying ${title}`
+  );
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(whatsappUrl, "_blank");
+};
+
 const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
   return (
     <>
       <section className="border-[1px] border-brandGray/30">
         {/* go back button */}
-        <div className="flex items-center gap-2 border-b-brandGray/30 pl-4 border-b-[1px] py-3">
+        <div className="flex items-center gap-2 border-b-brandGray/30 w-full pl-4 border-b-[1px] py-3">
           <ArrowLeft />
           <p className="text-black">Go Back</p>
         </div>
 
         {/* Product Info */}
-        <div className="flex items-start p-6">
-          <div className="flex flex-col items-center justify-center flex-1">
+        <div className="flex flex-col md:flex-row items-start w-full">
+          <div className="flex flex-col items-center justify-center p-2 md:p-4  w-full md:flex-1 mb-6 md:mb-0">
             {/* warranty */}
             <p className="bg-brandOrange rounded-full px-3 py-1 text-sm text-brandGray mb-5">
               {currentProduct?.warranty}
@@ -55,7 +66,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
               width={500}
               height={500}
             />
-            <div className="flex mt-6 items-center gap-5">
+            <div className="flex mt-6 items-center gap-5 overflow-x-auto w-full justify-center">
               {Array.from({ length: 4 }).map((_, idx) => (
                 <Image
                   key={idx}
@@ -68,8 +79,14 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
             </div>
           </div>
 
+          {/* Divider line for mobile only */}
+          <div className="w-full h-[1px] bg-brandGray/30 my-4 md:hidden"></div>
+
+          {/* Divider line for desktop - vertical */}
+          <div className="hidden md:block w-[1px] h-auto self-stretch bg-brandGray/30 mx-6"></div>
+
           {/* product details */}
-          <div className="flex flex-col items-start gap-4 flex-1">
+          <div className="flex flex-col items-start p-2 md:p-4 gap-4 w-full md:flex-1">
             {/* product title and availability */}
             <div className="flex-between w-full">
               <p className="text-3xl font-semibold">{currentProduct?.title}</p>
@@ -114,11 +131,16 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
             </ul>
 
             {/* cta */}
-            <WideButton
-              variant="green"
-              title="Buy It Now"
-              className="py-4 md:py-5 md:text-xs"
-            />
+            <div
+              className="w-full mt-2"
+              onClick={() => sendMessage(currentProduct.title)}
+            >
+              <WideButton
+                variant="green"
+                title="Buy It Now"
+                className="py-5 md:py-5 md:text-xs w-full md:w-fit"
+              />
+            </div>
           </div>
           {/* end product details */}
         </div>

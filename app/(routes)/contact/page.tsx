@@ -9,12 +9,12 @@ import { metadataConfig } from "@/app/metadata";
 
 export const metadata: Metadata = metadataConfig.contact;
 
-const page = () => {
+const Contact = () => {
   return (
-    <div className="bg-white min-h-screen flex-col-center px-4 pt-28">
+    <div className="bg-white px-4 pt-24">
       <section
         className={
-          "flex flex-col md:flex-row responsive-container gap-5 py-24 items-start justify-center"
+          "flex flex-col md:flex-row responsive-container py-10 gap-5 md:items-start justify-center"
         }
       >
         <div className={"space-y-5"}>
@@ -28,7 +28,7 @@ const page = () => {
           {/*contact information*/}
           <div
             className={
-              "flex flex-col items-start rounded-2xl w-full max-w-4xl bg-[#F5F5F5] p-6 pr-24 gap-5"
+              "flex flex-col items-start rounded-2xl w-full md:max-w-4xl bg-[#F5F5F5] p-6 pr-24 gap-5"
             }
           >
             <section className="w-full">
@@ -79,4 +79,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Contact;

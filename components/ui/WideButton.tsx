@@ -5,6 +5,7 @@ const WideButton = ({
   title,
   variant,
   className,
+  ...props
 }: {
   title: string;
   variant: "black" | "green" | "white";
@@ -19,6 +20,7 @@ const WideButton = ({
   };
   return (
     <button
+      {...props}
       className={cn(
         `text-sm md:text-base font-semibold py-6 px-8 md:py-8 md:px-12 rounded-2xl ${variants[variant]}`,
         className
