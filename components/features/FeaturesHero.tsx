@@ -6,6 +6,7 @@ import { MILESTONES } from "../home/static";
 import Milestones from "../home/Milestones";
 import { motion as m } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const FeaturesHero = () => {
   return (
@@ -46,11 +47,13 @@ const FeaturesHero = () => {
             sunlight (or your wall socket) and say goodbye to noisy generators
           </p>
           {/* cta btn */}
-          <WideButton
-            title="Visit Marketplace"
-            variant="green"
-            className="text-xs md:text-xs 2xl:px-28 mt-5"
-          />
+          <Link href={"/marketplace"}>
+            <WideButton
+              title="Visit Marketplace"
+              variant="green"
+              className="text-xs md:text-xs 2xl:px-28 mt-5"
+            />
+          </Link>
         </m.div>
 
         {/* Milestones section */}

@@ -1,5 +1,6 @@
 import React from "react";
 import WideButton from "../ui/WideButton";
+import Link from "next/link";
 
 const PlaceOrder = () => {
   return (
@@ -13,9 +14,9 @@ const PlaceOrder = () => {
           risk, just reward.
         </p>
       </div>
-      <div className="">
+      <Link href={"/marketplace"}>
         <WideButton variant="white" title="Place An Order" />
-      </div>
+      </Link>
     </div>
   );
 };
