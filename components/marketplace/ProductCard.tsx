@@ -2,19 +2,22 @@ import React from "react";
 import Image from "next/image";
 import HorizontalScroll from "./HorizontalScroll";
 import ArrowRight from "../ui/ArrowRight";
+import Link from "next/link";
+import { Product } from "@/app/(routes)/marketplace/[slug]/page";
 
-interface IProductCard {
-  price: string;
-  image: string;
-  title: string;
-  capacity: string;
-  batteryCapacity: string;
-  solarCapacity: string;
-  runtime: string;
-  categories: string[];
-}
+// interface IProductCard {
+//   price: string;
+//   image: string;
+//   title: string;
+//   capacity: string;
+//   batteryCapacity: string;
+//   solarCapacity: string;
+//   runtime: string;
+//   categories: string[];
+// }
 
-const ProductCard: React.FC<IProductCard> = ({
+const ProductCard: React.FC<Product> = ({
+  slug,
   price,
   image,
   title,
@@ -44,9 +47,11 @@ const ProductCard: React.FC<IProductCard> = ({
             height={200}
             className="rounded-2xl"
           />
-          <p className="underline font-bold text-lg mt-4 md:text-3xl">
-            {title}
-          </p>
+          <Link href={`marketplace/${slug}`}>
+            <p className="underline hover:text-brandGreen hover:no-underline  font-bold text-lg mt-4 md:text-3xl">
+              {title}
+            </p>
+          </Link>
         </div>
         {/* product description */}
         <ul className="flex items-start text-sm font-medium text-brandGray">

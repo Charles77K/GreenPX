@@ -1,12 +1,19 @@
-export const PRODUCT_CARD_ITEM = [
+import { Product } from "./ProductDetails";
+
+export const PRODUCT_CARD_ITEM: Product[] = [
   {
+    slug: "greenpx-mini",
     price: "500,000",
+    availability: "In stock",
     image: "/marketplace/product1.png",
     title: "GreenPX Mini",
     capacity: "1 KVA",
     batteryCapacity: "2kW Lithium-Ion Battery",
     solarCapacity: "600W Solar Panel",
     runtime: "6-8 Hours On Full Charge",
+    warranty: "3 Years Warranty",
+    productImage: "/marketplace/greenpx-maxi.png",
+    description: "ehcbu3dbub3uf3fbgu3",
     categories: [
       "Internet Router",
       "Decoder",
@@ -20,15 +27,59 @@ export const PRODUCT_CARD_ITEM = [
       "Lightning",
       "Fans",
     ],
+    productInfo: [
+      "Power Output: 1.5KVA solar generator",
+      "Battery: 2kW Lithium-lon Battery for extended use",
+      "Solar Panel Input: Compatible with multiple solar panels for faster charging",
+      "Backup Duration: 6+ hours with average load, 10+ hours with light load",
+      "Appliance Compatibility: Powers refrigerators, deep freezers, air conditioners, TVs, computers, medical devices, industrial machines, and more",
+      "Portability & Plug-and-Play: Easy installation for homes, offices, and shops",
+      "Dual Charging: Supports both solar and grid (PHCN) or Generator charging for 24/7 availability",
+    ],
+    reviews: {
+      total: 2400,
+      averageRating: 4.8,
+      ratings: [
+        {
+          name: "Michale O",
+          avatar: "user-placeholder",
+          date: "28/10/2021",
+          rating: 5,
+          review:
+            "I run a small restaurant, and now I can keep my fridge and essential appliances running smoothly without relying on the unstable grid. It’s powerful, reliable, and cost-effective",
+        },
+        {
+          name: "Chinwe A.",
+          avatar: "user-placeholder",
+          date: "18/09/2020",
+          rating: 5,
+          review:
+            "My home now has stable electricity throughout the night. It powers my fridge, fans, TV, and lights without any issues. The best part is that I don’t have to worry about fuel or noise like with my old generator",
+        },
+        {
+          name: "Abdullahi K.",
+          avatar: "user-placeholder",
+          date: "15/08/2024",
+          rating: 5,
+          review:
+            "As a shop owner, I need electricity for my display lights, POS machine, and fridge. GreenPX gives me all the power I need without extra costs on fuel. It’s an excellent investment for any business",
+        },
+      ],
+    },
   },
   {
+    slug: "greenpx-midi",
     price: "600,000",
+    availability: "In stock",
     image: "/marketplace/product2.png",
     title: "GreenPX Midi",
     capacity: "1.5 KVA",
     batteryCapacity: "2.5kW Lithium-Ion Battery",
     solarCapacity: "800W Solar Panel",
     runtime: "5-8 Hours On Full Charge",
+    warranty: "3 Years Warranty",
+    productImage: "/marketplace/greenpx-maxi.png",
+    description: "ebfuhbfi3hfihf3of",
     categories: [
       "Decoder",
       "Sound System",
@@ -42,27 +93,112 @@ export const PRODUCT_CARD_ITEM = [
       "Fans",
       "Blender",
     ],
+    productInfo: [
+      "Power Output: 1.5KVA solar generator",
+      "Battery: 2kW Lithium-lon Battery for extended use",
+      "Solar Panel Input: Compatible with multiple solar panels for faster charging",
+      "Backup Duration: 6+ hours with average load, 10+ hours with light load",
+      "Appliance Compatibility: Powers refrigerators, deep freezers, air conditioners, TVs, computers, medical devices, industrial machines, and more",
+      "Portability & Plug-and-Play: Easy installation for homes, offices, and shops",
+      "Dual Charging: Supports both solar and grid (PHCN) or Generator charging for 24/7 availability",
+    ],
+    reviews: {
+      total: 2400,
+      averageRating: 4.8,
+      ratings: [
+        {
+          name: "Michale O",
+          avatar: "user-placeholder",
+          date: "28/10/2021",
+          rating: 5,
+          review:
+            "I run a small restaurant, and now I can keep my fridge and essential appliances running smoothly without relying on the unstable grid. It’s powerful, reliable, and cost-effective",
+        },
+        {
+          name: "Chinwe A.",
+          avatar: "user-placeholder",
+          date: "18/09/2020",
+          rating: 5,
+          review:
+            "My home now has stable electricity throughout the night. It powers my fridge, fans, TV, and lights without any issues. The best part is that I don’t have to worry about fuel or noise like with my old generator",
+        },
+        {
+          name: "Abdullahi K.",
+          avatar: "user-placeholder",
+          date: "15/08/2024",
+          rating: 5,
+          review:
+            "As a shop owner, I need electricity for my display lights, POS machine, and fridge. GreenPX gives me all the power I need without extra costs on fuel. It’s an excellent investment for any business",
+        },
+      ],
+    },
   },
   {
+    slug: "greenpx-maxi",
     price: "800,000",
+    availability: "In stock",
     image: "/marketplace/product3.png",
     title: "GreenPX Maxi",
     capacity: "2 KVA",
     batteryCapacity: "3kW Lithium-Ion Battery",
     solarCapacity: "1000W Solar Panel",
     runtime: "4-8 Hours On Full Charge",
+    warranty: "3 Years Warranty",
+    productImage: "/marketplace/greenpx-maxi.png",
+    description:
+      "The GreenPX Maxi is designed for homes, businesses, and commercial spaces that require a powerful and sustainable energy source. With a high-capacity lithium-ion battery, advanced solar charging technology, and heavy-load support, this unit ensures uninterrupted power supply for extended periods.",
     categories: [
-      "Monitor",
-      "Mobile Phones",
-      "Fans",
-      "Blender",
-      "Lightning",
-      "Sound System",
       "TV",
+      "Monitor",
+      "HouseHold Items",
+      "Mobile Phones",
+      "Sound System",
+      "Lightning",
+      "Mobile Phones",
+      "Decoder",
+      "Fans",
       "Internet Router",
       "Refrigerator",
-      "HouseHold Items",
-      "Decoder",
+      "Blender",
     ],
+    productInfo: [
+      "Power Output: 1.5KVA solar generator",
+      "Battery: 2kW Lithium-lon Battery for extended use",
+      "Solar Panel Input: Compatible with multiple solar panels for faster charging",
+      "Backup Duration: 6+ hours with average load, 10+ hours with light load",
+      "Appliance Compatibility: Powers refrigerators, deep freezers, air conditioners, TVs, computers, medical devices, industrial machines, and more",
+      "Portability & Plug-and-Play: Easy installation for homes, offices, and shops",
+      "Dual Charging: Supports both solar and grid (PHCN) or Generator charging for 24/7 availability",
+    ],
+    reviews: {
+      total: 2400,
+      averageRating: 4.8,
+      ratings: [
+        {
+          name: "Michale O",
+          avatar: "/marketplace/",
+          date: "28/10/2021",
+          rating: 5,
+          review:
+            "I run a small restaurant, and now I can keep my fridge and essential appliances running smoothly without relying on the unstable grid. It’s powerful, reliable, and cost-effective",
+        },
+        {
+          name: "Chinwe A.",
+          avatar: "user-placeholder",
+          date: "18/09/2020",
+          rating: 5,
+          review:
+            "My home now has stable electricity throughout the night. It powers my fridge, fans, TV, and lights without any issues. The best part is that I don’t have to worry about fuel or noise like with my old generator",
+        },
+        {
+          name: "Abdullahi K.",
+          avatar: "user-placeholder",
+          date: "15/08/2024",
+          rating: 5,
+          review:
+            "As a shop owner, I need electricity for my display lights, POS machine, and fridge. GreenPX gives me all the power I need without extra costs on fuel. It’s an excellent investment for any business",
+        },
+      ],
+    },
   },
 ];
