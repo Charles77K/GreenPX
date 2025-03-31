@@ -4,6 +4,7 @@ import { formatNumber } from "@/utils/numberFormatter";
 import ReviewsCount from "./ReviewsCount";
 import { Star } from "./Icons";
 import Divider from "../ui/Divider";
+import Image from "next/image";
 
 const Reviews = ({ currentProduct }: { currentProduct: Product }) => {
   return (
@@ -61,6 +62,45 @@ const Reviews = ({ currentProduct }: { currentProduct: Product }) => {
         <Divider className="my-12" />
 
         {/* user reviews */}
+        <div className="flex flex-col items-start gap-3">
+          {currentProduct?.reviews.ratings.map((item, idx) => (
+            <div key={idx}>
+              <div className="flex items-center gap-20">
+                <section className="flex items-start gap-4">
+                  {/* user image */}
+                  <div>
+                    <Image
+                      src={item.avatar}
+                      alt={item.name}
+                      width={70}
+                      height={70}
+                    />
+                  </div>
+                  <div>
+                    {/* user name */}
+                    <p className="text-black text-lg md:text-2xl font-bold">
+                      {item.name}
+                    </p>
+                    {/* date */}
+                    <p className="text-sm text-gray-600">{item.date}</p>
+                    {/* rating */}
+                    <ul className="flex items-center gap-[2px]">
+                      {Array.from({
+                        length: Number(item.rating),
+                      }).map((_, index) => (
+                        <Star size="small" key={index} variant="gold" />
+                      ))}
+                    </ul>
+                  </div>
+                </section>
+                <section className="">
+                  <p className="text-brandGray max-w-xl">{item.review}</p>
+                </section>
+              </div>
+              <Divider className="my-12 w-full" />
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );

@@ -176,7 +176,7 @@ export const PRODUCT_CARD_ITEM: Product[] = [
       ratings: [
         {
           name: "Michale O",
-          avatar: "/marketplace/",
+          avatar: "/marketplace/Michael.png",
           date: "28/10/2021",
           rating: 5,
           review:
@@ -184,7 +184,7 @@ export const PRODUCT_CARD_ITEM: Product[] = [
         },
         {
           name: "Chinwe A.",
-          avatar: "user-placeholder",
+          avatar: "/marketplace/Chinwe.png",
           date: "18/09/2020",
           rating: 5,
           review:
@@ -192,7 +192,7 @@ export const PRODUCT_CARD_ITEM: Product[] = [
         },
         {
           name: "Abdullahi K.",
-          avatar: "user-placeholder",
+          avatar: "/marketplace/Abdullahi.png",
           date: "15/08/2024",
           rating: 5,
           review:
