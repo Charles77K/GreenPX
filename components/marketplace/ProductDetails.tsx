@@ -4,6 +4,7 @@ import React from "react";
 import { ArrowLeft } from "./Icons";
 import Image from "next/image";
 import WideButton from "../ui/WideButton";
+import { useRouter } from "next/navigation";
 
 export interface Product {
   slug: string;
@@ -43,11 +44,15 @@ export const sendMessage = (title: string) => {
 };
 
 const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
+  const router = useRouter();
   return (
     <>
       <section className="border-[1px] border-brandGray/30">
         {/* go back button */}
-        <div className="flex items-center gap-2 border-b-brandGray/30 w-full pl-4 border-b-[1px] py-3">
+        <div
+          onClick={() => router.back()}
+          className="flex items-center gap-2 cursor-pointer border-b-brandGray/30 w-full pl-4 border-b-[1px] py-3"
+        >
           <ArrowLeft />
           <p className="text-black">Go Back</p>
         </div>
