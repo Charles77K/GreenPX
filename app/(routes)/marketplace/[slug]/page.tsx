@@ -3,6 +3,19 @@ import React from "react";
 import { PRODUCT_CARD_ITEM } from "@/components/marketplace/static";
 import { ProductDetails, Reviews } from "@/components/marketplace";
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const slug = (await params).slug;
+  const currentProduct = PRODUCT_CARD_ITEM.find((item) => item.slug === slug);
+  return {
+    title: `${currentProduct?.title} - Marketplace`,
+    description: `Discover ${currentProduct?.title}`,
+  };
+};
+
 const ProductPage = async ({
   params,
 }: {

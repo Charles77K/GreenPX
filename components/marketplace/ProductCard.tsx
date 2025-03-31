@@ -3,7 +3,7 @@ import Image from "next/image";
 import HorizontalScroll from "./HorizontalScroll";
 import ArrowRight from "../ui/ArrowRight";
 import Link from "next/link";
-import { Product } from "@/app/(routes)/marketplace/[slug]/page";
+import { Product } from "./ProductDetails";
 
 // interface IProductCard {
 //   price: string;
