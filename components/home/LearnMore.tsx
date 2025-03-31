@@ -6,6 +6,7 @@ import Image from "next/image";
 import Line from "../ui/Line";
 
 import { motion as m } from "framer-motion";
+import Link from "next/link";
 
 const LearnMore = () => {
   return (
@@ -21,9 +22,9 @@ const LearnMore = () => {
             minutes. No risk, just reward
           </p>
         </div>
-        <div className="">
+        <Link href={"/marketplace"}>
           <WideButton variant="white" title="Get a Free Consultation" />
-        </div>
+        </Link>
       </div>
 
       {/* flex container with the power generator image and description */}
@@ -89,11 +90,13 @@ const LearnMore = () => {
                 <span className="font-bold">Why GreenPX?</span>
                 Click the button below to learn more about GreenPX.
               </p>
-              <WideButton
-                variant="white"
-                title="Learn More"
-                className="px-20 md:px-20 self-center md:self-start mt-4 md:mt-6"
-              />
+              <Link href={"/greenpx"}>
+                <WideButton
+                  variant="white"
+                  title="Learn More"
+                  className="px-20 md:px-20 self-center md:self-start mt-4 md:mt-6"
+                />
+              </Link>
             </div>
           </div>
         </section>

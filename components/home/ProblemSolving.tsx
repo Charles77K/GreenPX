@@ -4,6 +4,7 @@ import Divider from "../ui/Divider";
 import { PROBLEM_SOLVING_STEPS } from "./static";
 import ProblemSolvingStep from "./ProblemSolvingStep";
 import WideButton from "../ui/WideButton";
+import Link from "next/link";
 
 const ProblemSolving = () => {
   return (
@@ -24,13 +25,13 @@ const ProblemSolving = () => {
             <ProblemSolvingStep key={index} {...step} />
           ))}
         </section>
-        <div className="flex-center mt-16">
+        <Link href={"/marketplace"} className="flex-center mt-16">
           <WideButton
             title="Get Started"
             className="px-16 md:px-28"
             variant="green"
           />
-        </div>
+        </Link>
       </div>
     </div>
   );
