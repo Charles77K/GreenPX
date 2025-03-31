@@ -5,7 +5,13 @@ import Link from "next/link";
 import { motion as m } from "motion/react";
 import { NAV_LINKS } from "./Navbar";
 
-const MobileNavbar = ({ isOpen }: { isOpen: boolean }) => {
+const MobileNavbar = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   if (!isOpen) {
     return null; // Return null instead of false
   }
@@ -21,6 +27,7 @@ const MobileNavbar = ({ isOpen }: { isOpen: boolean }) => {
         <div className="bg-brandFadeBlue rounded-2xl p-3">
           {NAV_LINKS.map(({ label, href }) => (
             <Link
+              onClick={() => setIsOpen(false)}
               href={href}
               key={label}
               className="flex flex-col items-start text-brandGreen gap-4 px-4 py-3 text-md font-extrabold hover:text-brandGreen"
@@ -31,6 +38,7 @@ const MobileNavbar = ({ isOpen }: { isOpen: boolean }) => {
         </div>
         <div className="w-full bg-brandGreen text-center p-4 rounded-2xl">
           <Link
+            onClick={() => setIsOpen(false)}
             href="/contact"
             className="text-white w-full text-md font-extrabold"
           >

@@ -86,7 +86,9 @@ const Navbar = () => {
         </div>
       </nav>
       <AnimatePresence>
-        {isMenuOpen && <MobileNavbar isOpen={isMenuOpen} />}
+        {isMenuOpen && (
+          <MobileNavbar isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+        )}
       </AnimatePresence>
     </header>
   );
