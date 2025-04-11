@@ -21,7 +21,7 @@ const page = () => {
           business needs
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 responsive-container">
+      <div className="grid grid-cols-1 md:grid-cols-3 mx-auto max-w-5xl">
         {PRODUCT_CARD_ITEM.map((item, idx) => (
           <ProductCard {...item} key={idx} />
         ))}

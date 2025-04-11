@@ -15,6 +15,7 @@ export interface Product {
   warranty: string;
   title: string;
   capacity: string;
+  whatsapplink: string;
   batteryCapacity: string;
   solarCapacity: string;
   runtime: string;
@@ -34,12 +35,8 @@ export interface Product {
   };
 }
 
-export const sendMessage = (title: string) => {
-  const phoneNumber = "2347065051560";
-  const message = encodeURIComponent(
-    `Hello, I'm Interested in buying ${title}`
-  );
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+export const sendMessage = (link: string) => {
+  const whatsappUrl = link;
   window.open(whatsappUrl, "_blank");
 };
 
@@ -138,7 +135,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
             {/* cta */}
             <div
               className="w-full mt-2"
-              onClick={() => sendMessage(currentProduct.title)}
+              onClick={() => sendMessage(currentProduct.whatsapplink)}
             >
               <WideButton
                 variant="green"
