@@ -51,8 +51,21 @@ const ContactForm: React.FC = () => {
     setSuccess(null);
 
     try {
-      // Simulating API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch(
+        "https://project-manager-ruddy-phi.vercel.app/api/v1/message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) throw new Error(result.message);
+
       setSuccess("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error: unknown) {

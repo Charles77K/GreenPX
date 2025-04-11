@@ -1,7 +1,10 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 import ArrowRight from "../ui/ArrowRight";
+import { sendMessage } from "./ProductDetails";
 
 const ProductBottomCard = ({ className }: { className?: string }) => {
   return (
@@ -34,7 +37,10 @@ const ProductBottomCard = ({ className }: { className?: string }) => {
             provide a custom quote.
           </p>
         </div>
-        <div className="flex-col-center bg-white rounded-full aspect-square p-4 w-full max-w-44">
+        <div
+          onClick={() => sendMessage("https://wa.link/9e068t")}
+          className="flex-col-center bg-white rounded-full hover:scale-105 cursor-pointer transition-all duration-300 ease-in-out aspect-square p-4 w-full max-w-44"
+        >
           <p className="text-center text-xs sm:text-sm px-4 font-medium">
             Click Here To Customize Your Oder Now
           </p>

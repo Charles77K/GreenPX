@@ -44,7 +44,11 @@ const HeroSection = () => {
           <li>Solar generators</li>
         </ul>
         {/* CTA */}
-        <Link href={"/marketplace"} className="mt-10">
+        <Link
+          href={"https://forms.gle/ZYZNT39wC4y7H4NJ8"}
+          target="_blank"
+          className="mt-10"
+        >
           <WideButton variant="green" title="Get A Free Consultation" />
         </Link>
         <Link href={"/marketplace"} className="md:hidden flex mt-10">

@@ -22,7 +22,7 @@ const LearnMore = () => {
             minutes. No risk, just reward
           </p>
         </div>
-        <Link href={"/marketplace"}>
+        <Link href={"https://forms.gle/ZYZNT39wC4y7H4NJ8"} target="_blank">
           <WideButton variant="white" title="Get a Free Consultation" />
         </Link>
       </div>
