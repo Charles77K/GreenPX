@@ -5,7 +5,7 @@ import {
   SpeakerIcon,
   UserIcon,
 } from "@/components/about/Icon";
-import {IFoundersItemProps} from "@/components/about/FoundersItem";
+import { IFoundersItemProps } from "@/components/about/FoundersItem";
 
 export const VALUES_CARD_CONTENT = [
   {
@@ -92,7 +92,7 @@ export const VALUES_CARD_CONTENT = [
         />
       </svg>
     ),
-    title: "Reliability",
+    title: "Affordability",
     description:
       "We make renewable energy affordable and accessible, empowering homes, businesses, and communities. By driving energy independence and sustainability, we’re fueling economic growth and improving lives across Nigeria.",
   },
@@ -124,7 +124,7 @@ export const WHY_CHOOSE_US = [
   },
 ];
 
-export const FOUNDERS:IFoundersItemProps[] = [
+export const FOUNDERS: IFoundersItemProps[] = [
   {
     imageUrl: "/about/paul-okim.png",
     name: "Paul Okim",
@@ -138,5 +138,5 @@ export const FOUNDERS:IFoundersItemProps[] = [
     role: "Co-Founder and Director, Hardware and Digital Product Design",
     description:
       "Bekwapu Undie leads Green Potentia’s hardware and digital product design, combining expertise in CAD modeling, 3D printing, and UX design to create innovative, user-friendly solutions. His focus on cutting-edge technology and practical design ensures our products meet customer needs with efficiency and reliability.",
-  }
+  },
 ];

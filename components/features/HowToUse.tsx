@@ -8,22 +8,22 @@ const HowToUse = () => {
   return (
     <div className="flex-col-center py-16 px-4 bg-brandFadeBlue">
       {/* header */}
-      <div className="flex-col-center gap-2 text-black max-w-xl">
-        <Line color="bg-brandGreen" />
-        <h1 className="font-bold text-3xl md:text-4xl text-center">
+      <div className="flex-col-center gap-2 text-black max-w-2xl">
+        <Line color="bg-brandGreen my-2" />
+        <h1 className="font-bold text-3xl md:text-4xl xl:text-5xl text-center">
           The <span className="text-brandGreen">GreenPX Solar Generator</span>{" "}
           Is Easy To Use
         </h1>
-        <p className="text-brandGray text-xs">
+        <p className="text-brandGray text-xs md:text-sm xl:text-base">
           Use our Solar Generator in 4 simple steps
         </p>
       </div>
 
       {/* steps card */}
-      <div className="text-xs mt-8 grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="text-xs mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2">
         {/* step 1 */}
         <StepsCard id={steps[0].id} title={steps[0].title}>
-          <ul className="text-xs space-y-2 text-[#BDBDBD]">
+          <ul className="text-xs md:text-sm space-y-2 text-[#BDBDBD]">
             <li className="flex items-start">
               <span className="inline-block mr-2 mt-1.5">•</span>
               <span>
@@ -45,7 +45,7 @@ const HowToUse = () => {
 
         {/* step 2  */}
         <StepsCard id={steps[1].id} title={steps[1].title}>
-          <p className="text-[#BDBDBD] leading-normal">
+          <p className="text-[#BDBDBD] leading-normal text-xs md:text-sm">
             Once fully charged, GreenPX provides clean and stable energy to
             power multiple devices at the same time. Simply plug in your
             appliances using the AC outlets, USB ports, or DC outputs. 
@@ -54,11 +54,11 @@ const HowToUse = () => {
 
         {/* step 3 */}
         <StepsCard id={steps[2].id} title={steps[2].title}>
-          <p className="text-[#BDBDBD] leading-normal">
+          <p className="text-[#BDBDBD] text-xs md:text-sm leading-normal">
             The LED display on the unit displays the current battery status,
             helping you manage your energy consumption effectively. 
           </p>
-          <p className="text-[#BDBDBD] leading-normal">
+          <p className="text-[#BDBDBD] text-xs md:text-sm leading-normal">
             By keeping an eye on the charge level, you can plan power usage to
             prevent running out of energy at crucial times.
           </p>
@@ -66,11 +66,11 @@ const HowToUse = () => {
 
         {/* step 4 */}
         <StepsCard id={steps[3].id} title={steps[3].title}>
-          <p className="text-[#BDBDBD] leading-normal">
+          <p className="text-[#BDBDBD] leading-normal text-xs md:text-sm">
             The GreenPX Solar Generator is designed for mobility and
             flexibility. Its compact and durable design makes it easy to:
           </p>
-          <ul className="text-xs text-[#BDBDBD]">
+          <ul className="text-xs md:text-sm text-[#BDBDBD]">
             <li className="flex items-start">
               <span className="inline-block mr-2 mt-1.5">•</span>
               <span>
