@@ -30,7 +30,7 @@ const MobileNavbar = ({
               onClick={() => setIsOpen(false)}
               href={href}
               key={label}
-              className="flex flex-col items-start text-brandGreen gap-4 px-4 py-3 text-md font-extrabold hover:text-brandGreen"
+              className="flex flex-col text-sm items-start text-brandGreen gap-4 px-4 py-3 text-md font-extrabold hover:text-brandGreen"
             >
               {label}
             </Link>
@@ -40,7 +40,7 @@ const MobileNavbar = ({
           <Link
             onClick={() => setIsOpen(false)}
             href="/contact"
-            className="text-white w-full text-md font-extrabold"
+            className="text-white text-sm w-full text-md font-extrabold"
           >
             Contact us
           </Link>

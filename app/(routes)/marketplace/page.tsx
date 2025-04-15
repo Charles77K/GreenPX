@@ -10,7 +10,7 @@ export const metadata: Metadata = metadataConfig.marketplace;
 
 const page = () => {
   return (
-    <div className="flex-col-center px-4 md:px-16 xl:px-32 py-16">
+    <div className="flex-col-center px-4 md:px-16 xl:px-28 py-12">
       <div className="flex-col-center pt-20 pb-16 px-4 text-center">
         <h1 className="text-5xl md:-tracking-[4px] md:text-6xl lg:text-7xl xl:text-8xl font-bold">
           Our <br /> Products
