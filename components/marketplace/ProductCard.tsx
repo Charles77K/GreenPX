@@ -13,7 +13,7 @@ const ProductCard: React.FC<Product> = ({
   image,
   title,
   capacity,
-  whatsapplink,
+  whatsappLink,
   batteryCapacity,
   solarCapacity,
   runtime,
@@ -79,7 +79,7 @@ const ProductCard: React.FC<Product> = ({
         </HorizontalScroll>
         {/* order button */}
         <div className="group bg-black px-6 cursor-pointer rounded-xl text-sm py-3 text-white flex items-center gap-4 transition-all ease-in-out duration-300 hover:pr-10 relative">
-          <p onClick={() => sendMessage(whatsapplink)}>Place An Order</p>
+          <p onClick={() => sendMessage(whatsappLink)}>Place An Order</p>
           <p className="absolute opacity-0 transform translate-x-0 group-hover:opacity-100 group-hover:translate-x-3 transition-all ease-in-out duration-300 right-4">
             <ArrowRight color="white" height="20" width="20" />
           </p>

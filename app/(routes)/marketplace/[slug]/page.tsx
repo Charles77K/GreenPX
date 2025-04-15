@@ -16,6 +16,14 @@ export const generateMetadata = async ({
   };
 };
 
+export async function generateStaticParams() {
+  const products = PRODUCT_CARD_ITEM;
+
+  return products.map((product) => ({
+    slug: product.slug.toString(),
+  }));
+}
+
 const ProductPage = async ({
   params,
 }: {
