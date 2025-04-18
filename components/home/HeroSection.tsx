@@ -28,15 +28,15 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/70" />
       {/* main content */}
       <div className="flex relative flex-col items-center justify-center pt-20 text-white max-w-[1800px] mx-auto">
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] 2xl:text-[10rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] 2xl:text-[8rem] xl:-tracking-[6px] md:leading-none text-center font-thin">
           Do you have <br />
           <span className="font-bold ">24 hours</span> of power?
         </h1>
-        <p className="text-brandOrange text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl font-medium text-lg sm:text-xl md:text-2xl 2xl:text-4xl mt-5">
+        <p className="text-brandOrange text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl font-medium text-lg sm:text-xl md:text-2xl 2xl:text-3xl mt-5">
           No you don&apos;t. But you have us. We fix power problems for good
         </p>
         {/* services */}
-        <ul className="flex-center gap-3 text-sm lg:text-base 2xl:text-2xl flex-wrap md:text-base font-medium mt-4">
+        <ul className="flex-center gap-3 text-sm lg:text-base xl:text-lg 2xl:text-xl  flex-wrap md:text-base font-medium mt-4">
           <li>Solar installations</li>
           <li>•</li>
           <li>Maintenance</li>

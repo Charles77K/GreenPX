@@ -3,6 +3,7 @@ import Link from "next/link";
 import Faqs from "@/components/home/Faqs";
 import { Metadata } from "next";
 import { metadataConfig } from "@/app/metadata";
+import { FAQS } from "@/components/home/static";
 
 export const metadata: Metadata = metadataConfig.faqs;
 
@@ -32,7 +33,7 @@ const FaqsPage = () => {
         </header>
       </div>
       <div>
-        <Faqs />
+        <Faqs faqs={FAQS} />
       </div>
     </div>
   );

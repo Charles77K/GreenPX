@@ -57,7 +57,7 @@ const HorizontalScroll = ({
       <div
         className={cn(
           "flex min-w-full shrink-0 gap-4 w-max flex-nowrap",
-          isReady && "horizontal-scroll-animation"
+          isReady && "animate-horizontal-scroll"
         )}
       >
         {children}

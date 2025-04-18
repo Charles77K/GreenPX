@@ -57,12 +57,12 @@ const LearnMore = () => {
                 delay: 0.4,
               }}
               viewport={{ once: true }}
-              className="flex flex-col items-center xl:items-start 2xl:items-center text-brandOrange"
+              className="flex flex-col items-center xl:items-start text-brandOrange"
             >
-              <h1 className="text-center xl:text-start mt-5 text-4xl xs:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-8xl max-w-xl xl:max-w-3xl 2xl:max-w-full font-black xl:-tracking-[4px]">
+              <h1 className="text-center xl:text-start mt-5 text-4xl xs:text-5xl md:text-6xl lg:text-7xl xl:text-7xl max-w-xl xl:max-w-3xl 2xl:max-w-full font-black xl:-tracking-[4px]">
                 Introducing GreenPX
               </h1>
-              <p className="text-4xl text-center xl:text-start md:text-6xl xl:text-5xl 2xl:text-6xl font-semibold">
+              <p className="text-4xl text-center xl:text-start md:text-6xl xl:text-5xl font-semibold">
                 (Power Generator)
               </p>
             </m.div>

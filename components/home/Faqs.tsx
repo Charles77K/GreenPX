@@ -1,11 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { FAQs } from "./static";
 import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Faqs = ({header}:{header?:string}) => {
+const Faqs = ({
+  header,
+  faqs,
+}: {
+  header?: string;
+  faqs: {
+    id: number;
+    question: string;
+    answer: string;
+  }[];
+}) => {
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
 
   const toggleQuestion = (id: number) => {
@@ -14,27 +23,26 @@ const Faqs = ({header}:{header?:string}) => {
 
   return (
     <div className="flex flex-col items-center py-20 px-4 md:px-6">
-        {header &&  (
-
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="text-4xl text-center md:text-6xl font-bold text-[#333] mb-12"
-      >
+      {header && (
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-4xl text-center md:text-6xl font-bold text-[#333] mb-12"
+        >
           {header}
-      </motion.h2>
-        )}
+        </motion.h2>
+      )}
 
       <ul className="flex flex-col gap-5 w-full md:max-w-6xl">
-        {FAQs.map(({ id, question, answer }) => (
+        {faqs.map(({ id, question, answer }) => (
           <motion.li
             key={id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: id * 0.1 }}
+            transition={{ duration: 0.1, delay: id * 0.05 }}
             className={`border-b-[0.5px] border-transparent transition-all duration-300 ease-in-out pb-6 ${
               activeQuestion === id ? "border-[#333]" : ""
             }${activeQuestion !== id && "hover:border-[#333]"} `}
