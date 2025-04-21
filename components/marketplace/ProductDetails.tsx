@@ -48,28 +48,30 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
     <>
       <section className="border-[1px] border-brandGray/30">
         {/* cta and go back */}
-        <div className="flex-between w-full bg-red-500">
+        <div className="flex-between w-full px-4 mt-3">
           {/* go back button */}
           <div
             onClick={() => router.back()}
-            className="flex items-center gap-2 cursor-pointer border-b-brandGray/30 w-full pl-4 border-b-[1px] py-3"
+            className="flex items-center gap-2 cursor-pointer w-fit"
           >
             <ArrowLeft />
-            <p className="text-black">Go Back</p>
+            <p className="text-black text-sm">Go Back</p>
           </div>
 
           {/* Buy now */}
           <div
-            className="mt-2"
             onClick={() => sendMessage(currentProduct.whatsappLink)}
+            className="hidden xs:block"
           >
             <WideButton
               variant="green"
               title="Buy It Now"
-              className="py-5 md:py-2 md:px-16 md:text-xs w-full md:w-full flex-shrink-0"
+              className="py-3x md:py-4 md:text-xs"
             />
           </div>
         </div>
+
+        <div className="w-full h-[1px] bg-brandGray/30 my-3"></div>
 
         {/* Product Info */}
         <div className="flex flex-col md:flex-row items-start w-full">
@@ -160,6 +162,27 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
               <ul className="list-disc space-y-2 px-4 text-base">
                 {currentProduct?.specifications?.map((item, idx) => {
                   const [productTitle, productBody] = item.split(":");
+
+                  // Special handling for DC Ports
+                  if (productTitle.trim() === "DC Ports") {
+                    return (
+                      <li key={idx} className="text-black font-bold">
+                        {`${productTitle}:`}
+                        <ul className="list-disc ml-5 my-1">
+                          {productBody.split(",").map((port, portIdx) => (
+                            <li
+                              key={portIdx}
+                              className="font-medium text-brandGray"
+                            >
+                              {port.trim()}
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    );
+                  }
+
+                  // Regular rendering for other specifications
                   return (
                     <li key={idx} className="text-black font-bold">
                       {`${productTitle}:`}{" "}
