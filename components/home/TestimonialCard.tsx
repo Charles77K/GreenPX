@@ -8,7 +8,7 @@ interface ITestimonials {
 
 const TestimonialCard: React.FC<ITestimonials> = ({ title, comment }) => {
   return (
-    <div className="flex flex-col gap-5 max-h-[280px] max-w-[380px] w-full h-auto p-8 drop-shadow-md rounded-[2rem] border-2">
+    <div className="flex flex-col gap-5 max-h-[280px] max-w-[380px] w-full h-auto p-8 drop-shadow-md rounded-[2rem] border-2 overflow-hidden">
       <section>
         <h1 className="text-base md:text-xl mb-2 font-semibold text-brandGray">
           {title}
@@ -21,7 +21,7 @@ const TestimonialCard: React.FC<ITestimonials> = ({ title, comment }) => {
           ))}
         </ul>
       </section>
-      <p className="text-base md:text-lg max-w-xs mt-4 font-medium text-brandGray">
+      <p className="text-base md:text-lg max-w-xs md:mt-4 font-medium text-brandGray">
         {comment}
       </p>
     </div>

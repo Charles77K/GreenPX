@@ -32,17 +32,18 @@ const InfiniteScrollTestimonial = ({
 
   // Initialize the animation only once when component mounts
   React.useEffect(() => {
-    if (!start && containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
+    const timer = setTimeout(() => {
+      if (!start && containerRef.current && scrollerRef.current) {
+        const scrollerContent = Array.from(scrollerRef.current.children);
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-      setStart(true);
-    }
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          scrollerRef.current?.appendChild(duplicatedItem);
+        });
+        setStart(true);
+      }
+    }, 100);
+    return () => clearTimeout(timer);
   }, [start]);
 
   // Update direction and speed whenever relevant props change
@@ -103,7 +104,7 @@ const InfiniteScrollTestimonial = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          `flex flex-shrink-0 gap-4 w-max flex-nowrap`,
+          `flex flex-shrink-0 gap-4 w-full md:w-max flex-nowrap`,
           isMobile
             ? "flex-col-center h-full animate-vertical-scroll"
             : "flex-row animate-horizontal-scroll items-start",
