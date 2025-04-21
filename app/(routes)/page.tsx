@@ -7,6 +7,7 @@ import {
   Testimonials,
   WhatWeDo,
 } from "@/components/home";
+import { HOME_FAQS } from "@/components/home/static";
 import Cursor from "@/components/ui/Cursor";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       <WhatWeDo />
       <ProblemSolving />
       <Testimonials />
-      <Faqs header={'FAQs'}/>
+      <Faqs header={"FAQs"} faqs={HOME_FAQS} />
 
       {/* orange cursor appearing only on the home page */}
       <Cursor />

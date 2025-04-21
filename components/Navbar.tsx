@@ -10,9 +10,9 @@ import MobileNavbar from "./MobileNavbar";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Marketplace", href: "/marketplace" },
   { label: "About", href: "/about" },
   { label: "GreenPX", href: "/greenpx" },
+  { label: "Marketplace", href: "/marketplace" },
 ];
 
 const Navbar = () => {
@@ -45,8 +45,14 @@ const Navbar = () => {
       <nav className="bg-white shadow-md lg:px-10 md:px-5 px-4 py-4 flex-between relative">
         {/* logo section */}
         <div className="flex gap-2 items-center">
-          <Image src={"/logo.svg"} alt="px-logo" width={48} height={48} />
-          <div className="flex flex-col text-lg">
+          <Image
+            src={"/logo.svg"}
+            alt="px-logo"
+            width={40}
+            height={40}
+            priority
+          />
+          <div className="flex flex-col gap-px text-sm md:text-base">
             <h1 className="font-extrabold">Green</h1>
             <h1 className="font-extrabold -mt-2">Potentia</h1>
           </div>
@@ -54,7 +60,7 @@ const Navbar = () => {
 
         {/* mobile menu */}
         <div onClick={handleMenuToggle} className="block md:hidden">
-          {isMenuOpen ? <X size={40} /> : <Menu />}
+          {isMenuOpen ? <X size={30} /> : <Menu />}
         </div>
 
         {/* navigation bars */}
@@ -63,7 +69,7 @@ const Navbar = () => {
             <Link
               href={href}
               key={label}
-              className="relative font-medium text-md px-6 py-4
+              className="relative font-semibold md:text-[0.9rem] 2xl:text-sm px-6 py-4
                 after:content-[''] after:absolute after:left-0 after:bottom-0 
                 after:w-full after:h-[1px] after:bg-gray-800 after:scale-x-0 
                 after:transition-transform after:duration-300 
@@ -79,7 +85,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="font-bold bg-brandGreen hover:bg-black hover:text-brandOrange transition-colors duration-300 ease-in-out text-white rounded-2xl text-sm lg:text-md px-4 md:px-5 lg:px-8 py-3.5"
+            className="font-bold bg-brandGreen hover:bg-black hover:text-brandOrange transition-colors duration-300 ease-in-out text-white rounded-2xl text-xs md:text-[0.9rem] 2xl:text-base px-4 md:px-5 lg:px-8 py-3.5"
           >
             Contact Us
           </Link>

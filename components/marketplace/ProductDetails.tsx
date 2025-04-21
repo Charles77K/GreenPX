@@ -9,18 +9,21 @@ import { useRouter } from "next/navigation";
 export interface Product {
   slug: string;
   price: string;
+  usage: string;
   availability: "In stock" | "Out of stock";
   image: string;
   productImage: string;
   warranty: string;
   title: string;
   capacity: string;
+  whatsappLink: string;
   batteryCapacity: string;
   solarCapacity: string;
   runtime: string;
   description: string;
   categories: string[];
-  productInfo: string[];
+  specifications: string[];
+  features: string[];
   reviews: {
     total: number;
     averageRating: number;
@@ -34,12 +37,8 @@ export interface Product {
   };
 }
 
-export const sendMessage = (title: string) => {
-  const phoneNumber = "2347065051560";
-  const message = encodeURIComponent(
-    `Hello, I'm Interested in buying ${title}`
-  );
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+export const sendMessage = (link: string) => {
+  const whatsappUrl = link;
   window.open(whatsappUrl, "_blank");
 };
 
@@ -48,14 +47,31 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
   return (
     <>
       <section className="border-[1px] border-brandGray/30">
-        {/* go back button */}
-        <div
-          onClick={() => router.back()}
-          className="flex items-center gap-2 cursor-pointer border-b-brandGray/30 w-full pl-4 border-b-[1px] py-3"
-        >
-          <ArrowLeft />
-          <p className="text-black">Go Back</p>
+        {/* cta and go back */}
+        <div className="flex-between w-full px-4 mt-3">
+          {/* go back button */}
+          <div
+            onClick={() => router.back()}
+            className="flex items-center gap-2 cursor-pointer w-fit"
+          >
+            <ArrowLeft />
+            <p className="text-black text-sm">Go Back</p>
+          </div>
+
+          {/* Buy now */}
+          <div
+            onClick={() => sendMessage(currentProduct.whatsappLink)}
+            className="hidden xs:block"
+          >
+            <WideButton
+              variant="green"
+              title="Buy It Now"
+              className="py-3x md:py-4 md:text-xs"
+            />
+          </div>
         </div>
+
+        <div className="w-full h-[1px] bg-brandGray/30 my-3"></div>
 
         {/* Product Info */}
         <div className="flex flex-col md:flex-row items-start w-full">
@@ -91,7 +107,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
           <div className="hidden md:block w-[1px] h-auto self-stretch bg-brandGray/30 mx-6"></div>
 
           {/* product details */}
-          <div className="flex flex-col items-start p-2 md:p-4 gap-4 w-full md:flex-1">
+          <div className="flex flex-col items-start p-2 md:p-4 gap-5 w-full md:flex-1">
             {/* product title and availability */}
             <div className="flex-between w-full">
               <p className="text-3xl font-semibold">{currentProduct?.title}</p>
@@ -101,44 +117,107 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
             </div>
 
             {/* price */}
-            <p className="font-bold text-3xl">₦{currentProduct?.price}</p>
-
-            {/* categories */}
-            <ul className="flex items-center flex-wrap gap-2">
-              {currentProduct?.categories.map((item, idx) => (
-                <li
-                  key={idx}
-                  className="text-brandGray py-1 px-2 bg-brandFadeGray text-sm font-semibold"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            {/* product description */}
-            <p className="text-lg text-brandGray font-medium">
-              {currentProduct?.description}
+            <p className="font-bold text-sm text-brandGray md:text-lg">
+              {currentProduct?.usage}
             </p>
 
-            {/* product features */}
-            <ul className="list-disc space-y-2 px-4">
-              {currentProduct?.productInfo?.map((item, idx) => {
-                const [productTitle, productBody] = item.split(":");
-                return (
-                  <li key={idx} className="text-black font-bold">
-                    {`${productTitle}:`}{" "}
-                    <span className="font-medium text-brandGray">
-                      {productBody}
-                    </span>
+            {/* product description */}
+            {currentProduct?.description.includes("+") ? (
+              currentProduct?.description.split("+").map((desc, idx) => (
+                <p
+                  key={idx}
+                  className="text-sm md:text-base 2xl:text-lg text-brandGray leading-tight font-medium"
+                >
+                  {desc}
+                </p>
+              ))
+            ) : (
+              <p className="text-sm md:text-base 2xl:text-lg text-brandGray leading-tight font-medium">
+                {currentProduct.description}
+              </p>
+            )}
+
+            {/* categories */}
+            <div>
+              <h1 className="text-black text-base md:text-lg 2xl:text-xl font-bold mb-2">
+                APPLIANCES IT CAN POWER
+              </h1>
+              <ul className="flex items-center flex-wrap gap-2">
+                {currentProduct?.categories.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="text-brandGray py-1 px-2 bg-brandFadeGray text-xs font-semibold"
+                  >
+                    {item}
                   </li>
-                );
-              })}
-            </ul>
+                ))}
+              </ul>
+            </div>
+
+            {/* product specifications */}
+            <div>
+              <h1 className="text-black text-base md:text-lg 2xl:text-xl font-bold mb-2">
+                SPECS
+              </h1>
+              <ul className="list-disc space-y-2 px-4 text-base">
+                {currentProduct?.specifications?.map((item, idx) => {
+                  const [productTitle, productBody] = item.split(":");
+
+                  // Special handling for DC Ports
+                  if (productTitle.trim() === "DC Ports") {
+                    return (
+                      <li key={idx} className="text-black font-bold">
+                        {`${productTitle}:`}
+                        <ul className="list-disc ml-5 my-1">
+                          {productBody.split(",").map((port, portIdx) => (
+                            <li
+                              key={portIdx}
+                              className="font-medium text-brandGray"
+                            >
+                              {port.trim()}
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    );
+                  }
+
+                  // Regular rendering for other specifications
+                  return (
+                    <li key={idx} className="text-black font-bold">
+                      {`${productTitle}:`}{" "}
+                      <span className="font-medium text-brandGray">
+                        {productBody}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {/* product features */}
+            <div>
+              <h1 className="text-black text-base md:text-lg 2xl:text-xl font-bold mb-2">
+                FEATURES
+              </h1>
+              <ul className="list-disc space-y-2 px-4 text-base">
+                {currentProduct?.features?.map((item, idx) => {
+                  return (
+                    <li
+                      key={idx}
+                      className="text-black text-sm md:text-sm 2xl:text-base"
+                    >
+                      {item}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
 
             {/* cta */}
             <div
               className="w-full mt-2"
-              onClick={() => sendMessage(currentProduct.title)}
+              onClick={() => sendMessage(currentProduct.whatsappLink)}
             >
               <WideButton
                 variant="green"

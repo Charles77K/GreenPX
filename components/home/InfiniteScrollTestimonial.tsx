@@ -7,11 +7,13 @@ const InfiniteScrollTestimonial = ({
   direction = "left",
   speed = "normal",
   children,
+  pauseOnHover,
   className,
 }: {
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   children: React.ReactNode;
+  pauseOnHover?: boolean;
   className?: string;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -28,38 +30,26 @@ const InfiniteScrollTestimonial = ({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Initialize the animation only once when component mounts
   React.useEffect(() => {
-    if (!start) {
-      addAnimation();
-    }
+    const timer = setTimeout(() => {
+      if (!start && containerRef.current && scrollerRef.current) {
+        const scrollerContent = Array.from(scrollerRef.current.children);
+
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          scrollerRef.current?.appendChild(duplicatedItem);
+        });
+        setStart(true);
+      }
+    }, 100);
+    return () => clearTimeout(timer);
   }, [start]);
 
-  const addAnimation = () => {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-      getDirection();
-      getSpeed();
-      setStart(true);
-    }
-  };
-
+  // Update direction and speed whenever relevant props change
   React.useEffect(() => {
-    getDirection();
-  }, [direction, isMobile]);
-
-  React.useEffect(() => {
-    getSpeed();
-  }, [speed, isMobile]);
-
-  const getDirection = () => {
     if (containerRef.current) {
+      // Set direction
       containerRef.current.style.setProperty(
         "--animation-direction",
         isMobile ? "forwards" : direction === "left" ? "forwards" : "reverse"
@@ -68,22 +58,19 @@ const InfiniteScrollTestimonial = ({
         "--animation-name",
         isMobile ? "scrollVertical" : "scrollHorizontal"
       );
-    }
-  };
 
-  const getSpeed = (customSpeed?: string) => {
-    if (containerRef.current) {
-      let duration = customSpeed || "40s"; // Default normal speed
+      // Set speed
+      let duration = "40s"; // Default normal speed
       if (isMobile) {
         switch (speed) {
           case "fast":
-            duration = "10s";
+            duration = "20s";
             break;
           case "normal":
-            duration = "10s";
+            duration = "40s";
             break;
           case "slow":
-            duration = "30s";
+            duration = "80s";
             break;
         }
       } else {
@@ -101,31 +88,33 @@ const InfiniteScrollTestimonial = ({
       }
       containerRef.current.style.setProperty("--animation-duration", duration);
     }
-  };
+  }, [direction, speed, isMobile]);
 
   return (
     <div
       ref={containerRef}
       className={cn(
-        "relative z-20 max-w-full flex-col-center overflow-hidden",
+        "relative z-20 w-full overflow-hidden flex-col-center md:flex-none",
         isMobile
-          ? "[mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
+          ? "max-h-screen [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
           : "[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]",
         className
       )}
-      onMouseEnter={() => getSpeed("100s")} // Slow down on hover
-      onMouseLeave={() => getSpeed()} // Reset speed
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          `flex shrink-0 gap-4 w-full md:w-max p-0 flex-nowrap`,
+          `flex flex-shrink-0 gap-4 w-full md:w-max flex-nowrap`,
           isMobile
-            ? "flex-col max-h-screen vertical-scroll-animation"
-            : "flex-row horizontal-scroll-animation"
+            ? "flex-col-center h-full animate-vertical-scroll"
+            : "flex-row animate-horizontal-scroll items-start",
+          "[&>*]:flex-none",
+          pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {children}
+        {React.Children.toArray(children).map((child, index) => (
+          <React.Fragment key={index}>{child}</React.Fragment>
+        ))}
       </ul>
     </div>
   );

@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <div className="text-black py-20 px-4 flex-col-center overflow-hidden w-full">
-      <section className="flex-col-center gap-5">
+    <div className="text-black py-20 px-4 overflow-hidden w-full">
+      <section className="flex-col-center gap-5 mb-10">
         <Line color="bg-brandGreen" />
         <h4 className="text-5xl font-medium text-center">
           What Our Customers Say
@@ -18,7 +18,7 @@ const Testimonials = () => {
         </p>
       </section>
 
-      <InfiniteScrollTestimonial speed="normal" className="mt-10 ">
+      <InfiniteScrollTestimonial speed="slow" pauseOnHover>
         <TestimonialCard
           title="Hassan AI"
           comment="Green Potentia has transformed 
@@ -37,8 +37,8 @@ const Testimonials = () => {
           <Image
             src={"/home/user-1.png"}
             alt="user-icon-1"
-            width={350}
-            height={350}
+            width={370}
+            height={370}
           />
         </li>
 
@@ -60,8 +60,8 @@ const Testimonials = () => {
           <Image
             src={"/home/user-3.png"}
             alt="user-icon-1"
-            width={350}
-            height={350}
+            width={370}
+            height={370}
             className="rounded-[2rem]"
           />
         </li>
@@ -84,15 +84,16 @@ const Testimonials = () => {
           <Image
             src={"/home/user-2.png"}
             alt="user-icon-1"
-            width={350}
-            height={350}
+            width={370}
+            height={370}
           />
         </li>
       </InfiniteScrollTestimonial>
       <InfiniteScrollTestimonial
-        speed="fast"
+        speed="normal"
         direction="right"
-        className="hidden md:block pt-4"
+        className="hidden md:block mt-4"
+        pauseOnHover
       >
         <TestimonialCard
           title="Hassan AI"
@@ -112,8 +113,8 @@ const Testimonials = () => {
           <Image
             src={"/home/user-1.png"}
             alt="user-icon-1"
-            width={350}
-            height={350}
+            width={370}
+            height={370}
           />
         </li>
 
@@ -135,8 +136,8 @@ const Testimonials = () => {
           <Image
             src={"/home/user-3.png"}
             alt="user-icon-1"
-            width={350}
-            height={350}
+            width={370}
+            height={370}
             className="rounded-[2rem]"
           />
         </li>
@@ -159,8 +160,8 @@ const Testimonials = () => {
           <Image
             src={"/home/user-2.png"}
             alt="user-icon-1"
-            width={350}
-            height={350}
+            width={370}
+            height={370}
           />
         </li>
       </InfiniteScrollTestimonial>

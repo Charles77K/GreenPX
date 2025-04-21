@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { FormEvent } from "react";
 import Divider from "./ui/Divider";
 import { CiMail } from "react-icons/ci";
 import { LuPhone } from "react-icons/lu";
@@ -9,6 +9,10 @@ import Image from "next/image";
 import { motion as m } from "framer-motion";
 import Link from "next/link";
 import { FOOTER_LINKS, SOCIAL_MEDIA_LINKS } from "./static";
+import { ShowToast } from "@/lib/toast";
+import Spinner from "./ui/Spinner";
+import { cn } from "@/lib/utils";
+import { usePostData } from "@/lib/hooks";
 
 const motionVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -21,6 +25,40 @@ const motionVariants = {
 
 const Footer = () => {
   const [email, setEmail] = React.useState<string>("");
+  const { reset, postData, isLoading } = usePostData<{
+    email: string;
+  }>();
+
+  let err = "";
+  const validate = () => {
+    if (!email.trim()) {
+      err = "Email is Required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      err = "Invalid email address";
+    } else {
+      err = "";
+    }
+    return err == "";
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) {
+      ShowToast.error("Error", `${err}`);
+      return;
+    }
+    const result = await postData("email", { email });
+
+    if (!result.success) {
+      ShowToast.error("Error", `${result.error || "Something went wrong"}`);
+    } else {
+      ShowToast.success("Success", "Subscribed Successfully");
+      setEmail("");
+    }
+    reset();
+
+    reset();
+  };
 
   return (
     <footer className="bg-black py-16 px-8">
@@ -38,23 +76,29 @@ const Footer = () => {
         <p className="text-[#BDBDBD] text-sm md:text-lg font-medium">
           Get free updates and exclusive offers. We won&apos;t spam you🙂
         </p>
-        <form className="flex flex-col md:flex-row gap-2 md:gap-4 w-full max-w-2xl">
+        <form
+          className="flex flex-col md:flex-row gap-2 md:gap-4 w-full max-w-2xl"
+          onSubmit={handleSubmit}
+        >
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            type="email"
+            type="text"
             className="p-3 bg-[#333] placeholder:text-[#BDBDBD] text-white placeholder:text-sm md:placeholder:text-base w-full rounded-xl border border-[#BDBDBD] text-sm focus:outline-none focus:ring-blue"
             placeholder="Enter your email address"
           />
           <button
-            disabled={email.trim() === ""}
-            className={`${
+            disabled={email.trim() === "" || isLoading}
+            type="submit"
+            className={cn(
               email.trim() === ""
                 ? "bg-brandGreen/50 text-white/60"
-                : "bg-brandGreen text-white"
-            } px-8 py-3 font-bold w-full md:w-fit rounded-xl`}
+                : "bg-brandGreen text-white",
+              "px-8 py-3 font-bold w-full md:w-fit rounded-xl",
+              isLoading && "opacity-70"
+            )}
           >
-            Submit
+            {isLoading ? <Spinner /> : "Submit"}
           </button>
         </form>
       </m.section>

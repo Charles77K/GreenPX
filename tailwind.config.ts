@@ -22,29 +22,27 @@ export default {
       screens: {
         xs: "480px",
       },
-      // animation: {
-      //   scroll:
-      //     "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-      //   scrollVertical:
-      //     "scrollVertical var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-      //   "auto-scroll":
-      //     "var(--animation-name, scroll) var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-      // },
-      // keyframes: {
-      //   scroll: {
-      //     to: {
-      //       transform: "translate(calc(-50% - 0.5rem))",
-      //     },
-      //   },
-      //   scrollVertical: {
-      //     from: {
-      //       transform: "translateY(0)",
-      //     },
-      //     to: {
-      //       transform: "translateY(calc(-50% - 0.5rem))",
-      //     },
-      //   },
-      // },
+      animation: {
+        "horizontal-scroll":
+          "scrollHorizontal var(--animation-duration, duration) var(--animation-direction, forwards) linear infinite",
+        "vertical-scroll":
+          "scrollVertical var(--animation-duration, duration) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        scrollHorizontal: {
+          to: {
+            transform: "translateX(-50%)",
+          },
+        },
+        scrollVertical: {
+          "0%": {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(-50%)",
+          },
+        },
+      },
     },
   },
   plugins: [],

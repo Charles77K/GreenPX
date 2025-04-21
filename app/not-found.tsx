@@ -5,7 +5,12 @@ import { useRouter } from "next/navigation";
 const NotFound = () => {
   const router = useRouter();
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div
+      className="min-h-screen bg-black text-white"
+      style={{
+        background: "linear-gradient(180deg, #000 20%, #038B00 100%)",
+      }}
+    >
       <div className="flex-col-center h-screen">
         {/* header with  */}
         <header className="text-center">

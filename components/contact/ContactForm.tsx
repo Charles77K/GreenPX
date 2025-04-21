@@ -1,7 +1,10 @@
 "use client";
 
+import { usePostData } from "@/lib/hooks";
+import { ShowToast } from "@/lib/toast";
 import React, { useState } from "react";
 import styled from "styled-components";
+import Spinner from "../ui/Spinner";
 
 interface FormData {
   name: string;
@@ -15,9 +18,8 @@ const ContactForm: React.FC = () => {
     email: "",
     message: "",
   });
-  const [loading, setLoading] = useState<boolean>(false);
-  const [success, setSuccess] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const { postData, reset, isLoading } = usePostData<FormData>();
 
   //   form validation
   const validate = (): boolean => {
@@ -29,38 +31,37 @@ const ContactForm: React.FC = () => {
       tempErrors.email = "Invalid email format";
     }
     if (!formData.message.trim()) tempErrors.message = "Message is required";
+    if (formData.message.length < 5)
+      tempErrors.message = "Message should be at least 5 characters";
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
+  // onChange Event
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
     setErrors((prev) => ({ ...prev, [id]: "" }));
-    setSuccess(null);
   };
 
+  // form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!validate()) return;
 
-    setLoading(true);
-    setSuccess(null);
+    if (!validate()) return; //if form isn't valid return
+    const result = await postData("contact", formData); // send data function
+    if (result.error)
+      ShowToast.error("Error", `${result.error || "Something went wrong"}`); //if there is an error  display this toast message
 
-    try {
-      // Simulating API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setSuccess("Message sent successfully!");
+    // if successful
+    if (result.success) {
+      ShowToast.success("Success", "Message sent successfully");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error: unknown) {
-      console.log(error);
-      setSuccess("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
     }
+    reset();
   };
 
   return (
@@ -72,10 +73,13 @@ const ContactForm: React.FC = () => {
         <p className="text-xs md:text-sm 2xl:text-lg font-thin mb-4">
           Send a message and we&apos;ll reply in less than 4 hours
         </p>
+
+        {/* contact form */}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col items-center gap-5 w-full"
         >
+          {/* user name */}
           <StyledDiv>
             <StyledLabel htmlFor="name">Name</StyledLabel>
             <input
@@ -90,6 +94,8 @@ const ContactForm: React.FC = () => {
               <p className="text-red-500 text-xs">{errors.name}</p>
             )}
           </StyledDiv>
+
+          {/* user email */}
           <StyledDiv>
             <StyledLabel htmlFor="email">Email</StyledLabel>
             <input
@@ -104,6 +110,8 @@ const ContactForm: React.FC = () => {
               <p className="text-red-500 text-xs">{errors.email}</p>
             )}
           </StyledDiv>
+
+          {/* user message */}
           <StyledDiv>
             <StyledLabel htmlFor="message">Message</StyledLabel>
             <textarea
@@ -118,14 +126,15 @@ const ContactForm: React.FC = () => {
               <p className="text-red-500 text-xs">{errors.message}</p>
             )}
           </StyledDiv>
+
+          {/* submit btn */}
           <button
             type="submit"
             className="text-center bg-brandGreen text-white px-6 py-2.5 text-xs font-bold rounded-md"
-            disabled={loading}
+            disabled={isLoading}
           >
-            {loading ? "Sending..." : "Submit"}
+            {isLoading ? <Spinner size="sm" /> : "Submit"}
           </button>
-          {success && <p className="text-sm mt-2">{success}</p>}
         </form>
       </section>
     </div>

@@ -6,9 +6,16 @@ interface IValuesCard {
   title: string;
   description: string;
   className?: string;
+  desc?: string;
 }
 
-const ValuesCard = ({ icon, title, description, className }: IValuesCard) => {
+const ValuesCard = ({
+  icon,
+  title,
+  desc,
+  description,
+  className,
+}: IValuesCard) => {
   return (
     <div
       className={cn(
@@ -19,9 +26,14 @@ const ValuesCard = ({ icon, title, description, className }: IValuesCard) => {
       {/* icon */}
       <div className="p-2 bg-brandGreen rounded-full">{icon}</div>
       {/* header */}
-      <h2 className="font-bold text-xl">{title}</h2>
+      <h4 className="font-bold text-xl md:text-2xl">{title}</h4>
       {/* description */}
-      <p className={"text-[#BDBDBD] w-full md:max-w-sm text-[0.9rem]"}>
+      <p
+        className={cn(
+          "text-[#BDBDBD] w-full md:max-w-sm text-xs md:text-sm xl:text-base",
+          desc
+        )}
+      >
         {description}
       </p>
     </div>

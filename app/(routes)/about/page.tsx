@@ -33,6 +33,7 @@ const About = () => {
           priority
         />
       </div>
+
       {/* what we do at green potentia */}
       <div className="bg-brandFadeBlue flex-center my-10 px-4 py-16 md:py-32">
         <p className="text-3xl text-black font-medium max-w-4xl">
@@ -45,19 +46,20 @@ const About = () => {
       </div>
 
       {/* our values */}
-      <div className="flex-col-center px-4">
+      <div className="flex-col-center max-w-5xl mx-auto px-4">
         {/* header */}
         <div className="flex-col-center gap-4">
           <Line color="bg-brandGreen" />
           <h2 className="text-3xl md:text-5xl text-center text-brandBlack font-semibold">
             Our <br /> <GreenSpan>Values</GreenSpan>
           </h2>
-          <p className="text-brandGray text-base max-w-3xl text-center ">
+          <p className="text-brandGray mb-4 text-base max-w-3xl text-center ">
             At Green Potentia, our values define who we are and guide our
             mission to provide sustainable, reliable, and affordable energy
             solutions.
           </p>
         </div>
+
         {/* cards */}
         <div className="grid grid-cols-1 p-4 gap-2 md:grid-cols-2">
           {VALUES_CARD_CONTENT.map((item) => (
@@ -65,6 +67,7 @@ const About = () => {
               key={item.id}
               {...item}
               className={`${item.id === 5 && "md:col-span-2"}`}
+              desc={`${item.id === 5 && "md:max-w-full"}`}
               // width={`${item.id === 5 ? "max-w-full" : "max-w-sm"}`}
             />
           ))}
@@ -79,14 +82,18 @@ const About = () => {
             {/*header with line and our mission text*/}
             <div>
               <Line color="bg-brandGreen" />
-              <h2 className="text-brandGreen text-base font-medium">
+              <h2 className="text-brandGreen text-base md:text-lg xl:text-xl font-medium">
                 Our Mission
               </h2>
             </div>
             <h1 className="text-black text-2xl md:text-4xl 2xl:text-5xl max-w-sm font-bold">
               Lighting The Future With Clean Energy
             </h1>
-            <p className={"text-brandGray text-xs md:text-sm max-w-md"}>
+            <p
+              className={
+                "text-brandGray text-xs md:text-sm lg:text-base max-w-md"
+              }
+            >
               At Green Potentia, we make clean energy simple and accessible. Our
               affordable and reliable solar solutions power homes, businesses,
               and communities, reducing reliance on fossil fuels. With a focus
@@ -128,7 +135,7 @@ const About = () => {
         </section>
       </div>
 
-      {/*  the minds behind the mission : founder*/}
+      {/*  the minds behind the mission : founders */}
       <div className={"py-16 px-4"}>
         <section className={"flex-col-center"}>
           <Line color={"bg-brandGreen my-3 w-10"} />

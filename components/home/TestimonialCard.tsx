@@ -8,9 +8,11 @@ interface ITestimonials {
 
 const TestimonialCard: React.FC<ITestimonials> = ({ title, comment }) => {
   return (
-    <li className="flex flex-col text-[#333333] gap-5 max-h-[270px] max-w-[360px] w-full h-full p-8 drop-shadow-md rounded-[2rem] border-2">
+    <div className="flex flex-col gap-5 max-h-[280px] max-w-[380px] w-full h-auto p-8 drop-shadow-md rounded-[2rem] border-2 overflow-hidden">
       <section>
-        <h1 className="text-base md:text-xl mb-2 font-semibold">{title}</h1>
+        <h1 className="text-base md:text-xl mb-2 font-semibold text-brandGray">
+          {title}
+        </h1>
         <ul className="flex gap-1">
           {Array.from({ length: 5 }).map((_, idx) => (
             <li key={idx}>
@@ -19,8 +21,10 @@ const TestimonialCard: React.FC<ITestimonials> = ({ title, comment }) => {
           ))}
         </ul>
       </section>
-      <p className="text-base md:text-lg max-w-xs">{comment}</p>
-    </li>
+      <p className="text-base md:text-lg max-w-xs md:mt-4 font-medium text-brandGray">
+        {comment}
+      </p>
+    </div>
   );
 };
 
