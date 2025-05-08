@@ -16,11 +16,11 @@ const ServiceItem: React.FC<IServiceItem> = ({ image, title, description }) => {
           alt="Solar Installation"
           fill
           sizes="(max-width: 768px) 100vw, 30vw"
-          style={{ objectFit: "cover" }}
+          className="rounded-xl object-cover"
         />
       </div>
       <div className="flex-shrink-0">
-        <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3">
+        <h2 className="text-base xs:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-3">
           {title}
         </h2>
         <p className="text-brandGray text-sm md:text-md xl:text-base">
