@@ -12,7 +12,7 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "GreenPX", href: "/greenpx" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "/marketplace/greenpx-midi" },
 ];
 
 const Navbar = () => {
@@ -25,9 +25,9 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY.current) {
-        setIsVisible(false); // Hide navbar when scrolling down
+        setIsVisible(false);
       } else {
-        setIsVisible(true); // Show navbar when scrolling up
+        setIsVisible(true);
       }
       lastScrollY.current = window.scrollY;
     };

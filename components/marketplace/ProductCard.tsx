@@ -10,7 +10,7 @@ import { Product, sendMessage } from "./ProductDetails";
 const ProductCard: React.FC<Product> = ({
   slug,
   price,
-  image,
+  images,
   title,
   capacity,
   whatsappLink,
@@ -33,7 +33,7 @@ const ProductCard: React.FC<Product> = ({
         {/* product image with name */}
         <div className="">
           <Image
-            src={image}
+            src={images[0]}
             alt="GreenPX-Solar Generator"
             width={320}
             height={320}

@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const LearnMore = () => {
   return (
-    <div className="flex flex-col xs:flex-col-reverse md:flex-col">
+    <div className="flex flex-col xs:flex-col md:flex-col">
       {/* take the first step today section (lmao) with green background */}
       <div className="bg-brandGreen flex flex-col items-center justify-center md:flex-row gap-10 text-white md:py-10 lg:py-12 p-4 md:p-8">
         <div className="flex flex-col gap-2 items-start max-w-lg xl:max-w-xl">
@@ -32,16 +32,17 @@ const LearnMore = () => {
       </div>
 
       {/* flex container with the power generator image and description */}
-      <div className="flex flex-col-reverse xl:flex-row h-full max-h-[1200px] 2xl:max-h-[1200px]">
+      <div className="flex flex-col xl:flex-row h-full max-h-[1200px] 2xl:max-h-[1200px]">
         {/* image */}
-        <div className="relative flex-1 min-h-96 max-h-[600px]">
+        <div className="relative flex-1 h-[400px] sm:h-[400px] md:h-[500px] xl:h-[600px] min-h-[400px] md:min-h-[600px]">
           <Image
-            src="/home/power-generator.png"
+            src="/home/generator.png"
             alt="power-generator"
+            className="object-cover"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 40vw"
-            style={{ objectFit: "cover", objectPosition: "center" }}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
             priority
+            quality={95}
           />
         </div>
 
@@ -63,12 +64,9 @@ const LearnMore = () => {
               viewport={{ once: true }}
               className="flex flex-col items-center xl:items-start text-brandOrange"
             >
-              <h1 className="text-center xl:text-start mt-5 text-5xl md:text-6xl lg:text-7xl xl:text-7xl max-w-xl xl:max-w-3xl 2xl:max-w-full font-black xl:-tracking-[4px]">
+              <h1 className="text-center xl:text-start mt-5 text-5xl md:text-6xl lg:text-7xl xl:text-7xl max-w-xl font-black xl:-tracking-[4px]">
                 Introducing GreenPX
               </h1>
-              {/* <p className="text-4xl text-center xl:text-start md:text-6xl xl:text-5xl font-semibold">
-                (Power Generator)
-              </p> */}
             </m.div>
 
             {/* content */}
