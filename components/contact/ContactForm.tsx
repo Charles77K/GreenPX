@@ -2,9 +2,10 @@
 
 import { usePostData } from "@/lib/hooks";
 import { ShowToast } from "@/lib/toast";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Spinner from "../ui/Spinner";
+import { cn } from "@/lib/utils";
 
 interface FormData {
   name: string;
@@ -19,7 +20,15 @@ const ContactForm: React.FC = () => {
     message: "",
   });
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const { postData, reset, isLoading } = usePostData<FormData>();
+
+  useEffect(() => {
+    const { name, email, message } = formData;
+    const isFormValid =
+      name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
+    setCanSubmit(isFormValid);
+  }, [formData]);
 
   //   form validation
   const validate = (): boolean => {
@@ -65,12 +74,12 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="border-[0.5px] border-brandGreen md:max-w-sm w-full p-6 bg-white rounded-2xl">
+    <div className="border-[0.5px] border-brandGreen md:max-w-lg w-full p-8 bg-white rounded-2xl">
       <section className="flex flex-col items-start w-full">
         <h4 className="text-xl md:text-2xl 2xl:text-3xl font-bold mb-2">
           Get In Touch
         </h4>
-        <p className="text-xs md:text-sm 2xl:text-lg font-thin mb-4">
+        <p className="text-xs md:text-sm 2xl:text-base font-normal text-brandGray mb-4">
           Send a message and we&apos;ll reply in less than 4 hours
         </p>
 
@@ -117,7 +126,7 @@ const ContactForm: React.FC = () => {
             <textarea
               id="message"
               rows={5}
-              placeholder="What would you like to know?"
+              placeholder="What would you like to know or what would you like us to know?"
               className={InputStyles}
               value={formData.message}
               onChange={handleChange}
@@ -130,8 +139,11 @@ const ContactForm: React.FC = () => {
           {/* submit btn */}
           <button
             type="submit"
-            className="text-center bg-brandGreen text-white px-6 py-2.5 text-xs font-bold rounded-md"
-            disabled={isLoading}
+            className={cn(
+              "text-center bg-brandGreen text-white px-10 py-4 text-xs font-bold rounded-lg",
+              canSubmit ? "" : "opacity-55 cursor-not-allowed"
+            )}
+            disabled={isLoading || canSubmit}
           >
             {isLoading ? <Spinner size="sm" /> : "Submit"}
           </button>
@@ -159,12 +171,13 @@ const InputStyles = `
   py-2.5 
   px-2 
   w-full 
-  rounded-md 
+  rounded-xl 
+  border border-brandGray/20
   text-xs
   md:text-sm
-  2xl:text-lg 
   placeholder:text-xs
   md:placeholder:text-sm
+  placeholder:text-brandGray
   focus:outline-none
   focus:ring-1
   focus:ring-black
