@@ -51,7 +51,10 @@ const HeroSection = () => {
         >
           <WideButton variant="green" title="Get A Free Consultation" />
         </Link>
-        <Link href={"/marketplace"} className="md:hidden flex mt-5">
+        <Link
+          href={"/marketplace/greenpx-midi"}
+          className="md:hidden flex mt-5"
+        >
           <WideButton variant="black" title="Visit Our MarketPlace" />
         </Link>
         {/* social media icons */}

@@ -14,7 +14,7 @@ const WideButton = ({
   const variants = {
     black: "bg-black text-white",
     green:
-      "bg-brandGreen text-white hover:bg-black transition-all duration-300 ease-in-out",
+      "bg-brandGreen text-white hover:bg-black hover:text-brandOrange transition-all duration-300 ease-in-out",
     white:
       "bg-brandFadeBlue text-black hover:bg-black hover:text-brandOrange transition-all duration-300 ease-in-out",
   };

@@ -14,7 +14,7 @@ const PlaceOrder = () => {
           risk, just reward.
         </p>
       </div>
-      <Link href={"/marketplace"}>
+      <Link href={"/marketplace/greenpx-midi"}>
         <WideButton variant="white" title="Place An Order" />
       </Link>
     </div>

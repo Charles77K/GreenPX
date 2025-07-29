@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const FeaturesHero = () => {
   return (
-    <div className="relative text-white flex flex-col px-4 items-center py-10 md:py-16 lg:py-20 justify-between">
+    <div className="relative text-white flex flex-col px-4 items-center min-h-screen py-16 md:py-24 justify-between">
       {/* Background Image */}
       <Image
         src="/features/features-hero.png"
@@ -32,26 +32,26 @@ const FeaturesHero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center max-w-4xl mx-auto mb-16 md:mb-24"
         >
-          <h3 className="text-brandGray bg-brandOrange w-fit rounded-full py-1 px-2 text-xs 2xl:text-base">
+          <h3 className="text-brandGray bg-brandOrange w-fit rounded-full mb-6 py-1 px-2 text-xs">
             Introducing our Flagship Product
           </h3>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl -tracking-[2px] font-extrabold">
+          <h1 className="text-6xl md:text-6xl xl:text-7xl 2xl:text-8xl -tracking-[2px] font-extrabold">
             GreenPX
           </h1>
-          <h2 className="font-light text-center -mt-2 text-3xl md:text-5xl -tracking-[2px] lg:text-6xl 2xl:text-8xl">
+          <h2 className="font-thin text-center md:-mt-4 text-5xl -tracking-[2px] lg:text-6xl 2xl:text-7xl">
             (Solar Generator)
           </h2>
-          <p className="text-center max-w-xl 2xl:max-w-3xl mt-4 text-sm xl:text-base 2xl:text-lg 2xl:font-medium">
+          <p className="text-center max-w-xl 2xl:max-w-2xl mt-16 text-sm xl:text-base ">
             GreenPX is a silent, solar-powered battery box that keeps your
             lights, phone, and other devices running. Just charge it with
             sunlight (or your wall socket) and say goodbye to noisy generators
           </p>
           {/* cta btn */}
-          <Link href={"/marketplace"}>
+          <Link href={"/marketplace/greenpx-midi"}>
             <WideButton
               title="Place An Order"
               variant="green"
-              className="text-xs md:text-xs md:py-6 2xl:px-20 mt-5"
+              className="text-xs md:text-xs md:py-8 2xl:px-20 mt-5"
             />
           </Link>
         </m.div>
