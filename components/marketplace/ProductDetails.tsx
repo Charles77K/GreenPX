@@ -11,8 +11,7 @@ export interface Product {
   price: string;
   usage: string;
   availability: "In stock" | "Out of stock";
-  image: string;
-  productImage: string;
+  images: string[];
   warranty: string;
   title: string;
   capacity: string;
@@ -43,6 +42,45 @@ export const sendMessage = (link: string) => {
 };
 
 const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
+  const [selectedImage, setSelectedImage] = React.useState<string>(
+    currentProduct.images[0]
+  );
+  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const carouselRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      // Calculate next index properly, ensuring it wraps around
+      const nextIndex = (currentIndex + 1) % currentProduct.images.length;
+      setCurrentIndex(nextIndex);
+      setSelectedImage(currentProduct.images[nextIndex]);
+
+      // Properly scroll the main carousel
+      if (carouselRef.current) {
+        carouselRef.current.scrollTo({
+          left: nextIndex * carouselRef.current.offsetWidth,
+          behavior: "smooth",
+        });
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, currentProduct.images]);
+
+  // Handle manual image selection
+  const handleImageSelect = (image: string, index: number) => {
+    setSelectedImage(image);
+    setCurrentIndex(index);
+
+    // Smooth scroll to selected image
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({
+        left: index * carouselRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const router = useRouter();
   return (
     <>
@@ -66,7 +104,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
             <WideButton
               variant="green"
               title="Buy It Now"
-              className="py-3x md:py-4 md:text-xs"
+              className="py-3 md:py-4 md:text-xs"
             />
           </div>
         </div>
@@ -75,27 +113,45 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
 
         {/* Product Info */}
         <div className="flex flex-col md:flex-row items-start w-full">
-          <div className="flex flex-col items-center justify-center p-2 md:p-4  w-full md:flex-1 mb-6 md:mb-0">
+          <div className="flex flex-col items-center justify-center p-2 md:p-4 w-full md:flex-1 mb-6 md:mb-0">
             {/* warranty */}
             <p className="bg-brandOrange rounded-full px-3 py-1 text-sm text-brandGray mb-5">
               {currentProduct?.warranty}
             </p>
             {/* product image */}
-            <Image
-              src={currentProduct?.productImage || "image"}
-              alt="Product Image"
-              width={500}
-              height={500}
-            />
-            <div className="flex mt-6 items-center gap-5 overflow-x-auto w-full justify-center">
-              {Array.from({ length: 4 }).map((_, idx) => (
-                <Image
+            <div
+              ref={carouselRef}
+              className="flex w-full overflow-x-hidden flex-shrink-0 scroll-smooth rounded-2xl"
+            >
+              {currentProduct.images.map((image, idx) => (
+                <div
                   key={idx}
-                  src={currentProduct?.image || "Product Image"}
-                  alt={currentProduct!.title}
-                  width={70}
-                  height={70}
-                />
+                  className="flex-shrink-0 snap-start w-full relative h-[600px] rounded-xl"
+                >
+                  <Image
+                    src={image}
+                    alt="Product Image"
+                    fill
+                    className="w-full object-cover rounded-2xl"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex-center mt-3 gap-2 w-full">
+              {currentProduct.images.map((image, idx) => (
+                <div key={idx} className="relative w-24 h-24">
+                  <Image
+                    onClick={() => handleImageSelect(image, idx)}
+                    src={image}
+                    alt={currentProduct.title}
+                    fill
+                    className={`object-cover rounded-xl cursor-pointer transition-all ${
+                      selectedImage === image
+                        ? "border-4 border-brandOrange scale-105"
+                        : "opacity-70"
+                    }`}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -146,7 +202,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
                 {currentProduct?.categories.map((item, idx) => (
                   <li
                     key={idx}
-                    className="text-brandGray py-1 px-2 bg-brandFadeGray text-xs font-semibold"
+                    className="text-brandGray py-1 px-2 bg-brandFadeGray text-[13px] font-semibold"
                   >
                     {item}
                   </li>
@@ -164,12 +220,12 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
                   const [productTitle, productBody] = item.split(":");
 
                   // Special handling for DC Ports
-                  if (productTitle.trim() === "DC Ports") {
+                  if (productTitle?.trim() === "DC Ports") {
                     return (
                       <li key={idx} className="text-black font-bold">
                         {`${productTitle}:`}
                         <ul className="list-disc ml-5 my-1">
-                          {productBody.split(",").map((port, portIdx) => (
+                          {productBody?.split(",").map((port, portIdx) => (
                             <li
                               key={portIdx}
                               className="font-medium text-brandGray"

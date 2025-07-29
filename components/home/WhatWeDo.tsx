@@ -56,9 +56,6 @@ const WhatWeDo = () => {
               alt="power-generator"
               width={550}
               height={550}
-              // fill
-              // sizes="(max-width: 768px) 100vw, 50vw"
-              // style={{ objectFit: "cover" }}
               className="rounded-3xl"
             />
           </div>

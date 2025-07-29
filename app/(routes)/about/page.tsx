@@ -13,6 +13,7 @@ import FoundersItem from "@/components/about/FoundersItem";
 import { Testimonials } from "@/components/home";
 import { metadataConfig } from "@/app/metadata";
 import { Metadata } from "next";
+import Gallery from "@/components/about/Gallery";
 
 export const metadata: Metadata = metadataConfig.about;
 
@@ -158,6 +159,8 @@ const About = () => {
           </div>
         </section>
       </div>
+      {/* photo gallery */}
+      <Gallery />
 
       <Testimonials />
     </div>
