@@ -45,7 +45,7 @@ const Navbar = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="bg-white shadow-md lg:px-10 md:px-5 px-4 py-5 flex-between relative">
+      <nav className="bg-white lg:px-10 md:px-5 px-4 py-5 flex-between relative">
         {/* logo section */}
         <div className="flex gap-2 items-center">
           <Image

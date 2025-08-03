@@ -61,7 +61,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black py-16 px-8">
+    <footer className="bg-black py-16 px-6">
       {/* top section */}
       <m.section
         variants={motionVariants}
@@ -111,7 +111,7 @@ const Footer = () => {
         initial="hidden"
         whileInView="visible"
         custom={0.3}
-        className="flex flex-col md:flex-row gap-10 text-start max-w-6xl mx-auto justify-between"
+        className="flex flex-col md:flex-row gap-8 text-start max-w-6xl mx-auto justify-between"
       >
         {/* about */}
         <div className="space-y-2">
@@ -138,8 +138,7 @@ const Footer = () => {
             </li>
             <p className="flex items-start gap-2">
               <PiMapPinAreaBold size={15} />
-              23 Bedwell Street, Calabar,
-              <br /> Cross River State
+              23 Bedwell Street, Calabar, Cross River State
             </p>
           </ul>
         </div>
@@ -161,7 +160,7 @@ const Footer = () => {
           <h2 className="text-brandFadeGreen font-medium text-sm">Follow</h2>
           <nav className="flex flex-col text-sm text-white items-start gap-3">
             {SOCIAL_MEDIA_LINKS.map(({ icon, href }) => (
-              <Link key={href} href={href}>
+              <Link key={href} href={href} target="_blank">
                 {icon}
               </Link>
             ))}

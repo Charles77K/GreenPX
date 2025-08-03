@@ -1,6 +1,6 @@
 import {
   FacebookIcon,
-  InstagramIcon,
+  // InstagramIcon,
   LinkedinIcon,
   WhatsappIcon,
 } from "./ui/icons";
@@ -13,8 +13,14 @@ export const FOOTER_LINKS = [
 ];
 
 export const SOCIAL_MEDIA_LINKS = [
-  { icon: <WhatsappIcon />, href: "https://.whatsapp.com" },
-  { icon: <InstagramIcon />, href: "https://instagram.com" },
-  { icon: <FacebookIcon />, href: "https://www.facebook.com" },
-  { icon: <LinkedinIcon />, href: "https://www.linkedn.com" },
+  { icon: <WhatsappIcon />, href: "https://wa.link/zo13js" },
+  // { icon: <InstagramIcon />, href: "https://instagram.com" },
+  {
+    icon: <FacebookIcon />,
+    href: "https://www.facebook.com/share/156zvbodq6/?mibextid=wwXIfr",
+  },
+  {
+    icon: <LinkedinIcon />,
+    href: "https://www.linkedin.com/company/greenpotentialimited/",
+  },
 ];

@@ -25,10 +25,10 @@ const ProblemSolving = () => {
             <ProblemSolvingStep key={index} {...step} />
           ))}
         </section>
-        <Link href={"/marketplace"} className="flex-center mt-16">
+        <Link href={"/marketplace/greenpx-midi"} className="flex-center mt-16">
           <WideButton
             title="Get Started"
-            className="px-16 md:px-28"
+            className="px-10 md:px-20"
             variant="green"
           />
         </Link>

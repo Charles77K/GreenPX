@@ -113,7 +113,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
 
         {/* Product Info */}
         <div className="flex flex-col md:flex-row items-start w-full">
-          <div className="flex flex-col items-center justify-center p-2 md:p-4 w-full md:flex-1 mb-6 md:mb-0">
+          <div className="flex flex-col items-center justify-center p-4 w-full md:flex-1 mb-6 md:mb-0">
             {/* warranty */}
             <p className="bg-brandOrange rounded-full px-3 py-1 text-sm text-brandGray mb-5">
               {currentProduct?.warranty}
@@ -163,7 +163,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
           <div className="hidden md:block w-[1px] h-auto self-stretch bg-brandGray/30 mx-6"></div>
 
           {/* product details */}
-          <div className="flex flex-col items-start p-2 md:p-4 gap-5 w-full md:flex-1">
+          <div className="flex flex-col items-start p-4 gap-5 w-full md:flex-1">
             {/* product title and availability */}
             <div className="flex-between w-full">
               <p className="text-3xl font-semibold">{currentProduct?.title}</p>
@@ -172,7 +172,7 @@ const ProductDetails = ({ currentProduct }: { currentProduct: Product }) => {
               </p>
             </div>
 
-            {/* price */}
+            {/* usage */}
             <p className="font-bold text-sm text-brandGray md:text-lg">
               {currentProduct?.usage}
             </p>
