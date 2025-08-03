@@ -27,7 +27,7 @@ const About = () => {
           <span className="text-brandGreen">Sustainable Energy Solutions</span>
         </h1>
         <Image
-          src={"/about/about.png"}
+          src={"/about/about.webp"}
           alt="About GreenPX"
           width={900}
           height={400}
@@ -37,7 +37,7 @@ const About = () => {
 
       {/* what we do at green potentia */}
       <div className="bg-brandFadeBlue flex-center my-10 px-4 py-16 md:py-32">
-        <p className="text-3xl text-black font-medium max-w-4xl">
+        <p className="text-2xl xl:text-3xl text-black font-medium max-w-4xl">
           At <GreenSpan>Green Potentia</GreenSpan>, we&apos;re here to{" "}
           <GreenSpan>fix</GreenSpan> what&apos;s broken about power in Nigeria:
           blackouts, noisy generators, and bills that never stop climbing. We
@@ -90,11 +90,7 @@ const About = () => {
             <h1 className="text-black text-2xl md:text-4xl 2xl:text-5xl max-w-sm font-bold">
               Lighting The Future With Clean Energy
             </h1>
-            <p
-              className={
-                "text-brandGray text-xs md:text-sm lg:text-base max-w-md"
-              }
-            >
+            <p className={"text-brandGray text-sm lg:text-base max-w-md"}>
               At Green Potentia, we make clean energy simple and accessible. Our
               affordable and reliable solar solutions power homes, businesses,
               and communities, reducing reliance on fossil fuels. With a focus

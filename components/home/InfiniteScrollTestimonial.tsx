@@ -18,7 +18,6 @@ const InfiniteScrollTestimonial = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
-  const [start, setStart] = React.useState<boolean>(false);
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
 
   React.useEffect(() => {
@@ -30,21 +29,10 @@ const InfiniteScrollTestimonial = ({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Initialize the animation only once when component mounts
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!start && containerRef.current && scrollerRef.current) {
-        const scrollerContent = Array.from(scrollerRef.current.children);
-
-        scrollerContent.forEach((item) => {
-          const duplicatedItem = item.cloneNode(true);
-          scrollerRef.current?.appendChild(duplicatedItem);
-        });
-        setStart(true);
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [start]);
+  const childrenArray = React.Children.toArray(children);
+  const duplicatedChildren = React.useMemo(() => {
+    return [...childrenArray, ...childrenArray];
+  }, [childrenArray]);
 
   // Update direction and speed whenever relevant props change
   React.useEffect(() => {
@@ -112,7 +100,7 @@ const InfiniteScrollTestimonial = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {React.Children.toArray(children).map((child, index) => (
+        {duplicatedChildren.map((child, index) => (
           <React.Fragment key={index}>{child}</React.Fragment>
         ))}
       </ul>

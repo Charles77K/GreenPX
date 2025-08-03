@@ -13,7 +13,7 @@ const FeaturesHero = () => {
     <div className="relative text-white flex flex-col px-4 items-center min-h-screen py-16 md:py-24 justify-between">
       {/* Background Image */}
       <Image
-        src="/features/features-hero.png"
+        src="/features/features-hero.webp"
         alt="Hero Background"
         fill
         className="object-cover"
