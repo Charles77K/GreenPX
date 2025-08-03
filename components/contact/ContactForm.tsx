@@ -74,7 +74,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="border-[0.5px] border-brandGreen md:max-w-lg w-full p-8 bg-white rounded-2xl">
+    <div className="border-[0.5px] border-brandGreen md:max-w-lg w-full p-6 bg-white rounded-2xl">
       <section className="flex flex-col items-start w-full">
         <h4 className="text-xl md:text-2xl 2xl:text-3xl font-bold mb-2">
           Get In Touch

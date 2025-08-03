@@ -99,10 +99,10 @@ export const PRODUCT_CARD_ITEM: Product[] = [
     warranty: "3 Years Warranty",
     images: [
       "/marketplace/px-midi.jpg",
-      "/marketplace/px1.png",
+      "/marketplace/px1.webp",
       "/marketplace/px-midi2.jpg",
-      "/marketplace/px3.png",
-      "/marketplace/px4.png",
+      "/marketplace/px3.jpg",
+      "/marketplace/px4.webp",
     ],
     description:
       "The GreenPX Midi is a powerful mid-tier solar generator built for convenience, performance, and everyday energy needs. It offers the perfect balance between the lightweight GreenPX Mini and the heavy-duty Maxi. Whether you’re powering your home office or keeping your essential appliances running, the Midi is your dependable companion for clean and silent energy.",

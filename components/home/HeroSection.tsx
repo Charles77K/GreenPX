@@ -18,7 +18,7 @@ const HeroSection = () => {
     >
       {/* Background Image */}
       <Image
-        src="/home/hero-image.png"
+        src="/home/hero-image.webp"
         alt="Hero Background"
         fill
         className="object-cover"
