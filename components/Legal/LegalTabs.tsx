@@ -58,7 +58,7 @@ const LegalTabs = () => {
   };
 
   const SidebarContent = () => (
-    <nav aria-labelledby="legal-docs-heading">
+    <nav aria-labelledby="legal-docs-heading" className="bg-white">
       <ul className="space-y-4">
         {SIDE_BAR.map(({ icon, label, href }) => (
           <li key={href}>
@@ -84,7 +84,7 @@ const LegalTabs = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-white">
       {/* Mobile Menu Trigger */}
       {isMobile && (
         <div className="mb-4">
@@ -97,7 +97,7 @@ const LegalTabs = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-4 items-start gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 items-start gap-6 bg-white">
         {/* Sidebar for Mobile and Desktop */}
         <aside
           className={cn(

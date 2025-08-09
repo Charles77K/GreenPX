@@ -27,7 +27,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY.current) {
+      if (window.scrollY <= 0) {
+        setIsVisible(true);
+      } else if (window.scrollY > lastScrollY.current) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -73,7 +75,7 @@ const Navbar = () => {
               href={href}
               key={label}
               className={cn(
-                "relative font-bold md:text-[0.9rem] 2xl:text-sm px-6 py-2 after:content-[''] hover:bg-brandGreen/10 hover:text-brandGreen transition-all duration-300 ease-in-out rounded-full",
+                "relative font-bold md:text-[0.9rem] text-black 2xl:text-sm px-6 py-2 after:content-[''] hover:bg-brandGreen/10 hover:text-brandGreen transition-all duration-300 ease-in-out rounded-full",
                 pathName === href &&
                   "bg-brandGreen/10 text-brandGreen rounded-full px-6 py-2"
               )}

@@ -31,7 +31,7 @@ const Legal = () => {
           </p>
         </header>
       </div>
-      <section className={"flex-col-center mt-10"}>
+      <section className={"flex-col-center bg-white mt-10"}>
         <LegalTabs />
       </section>
     </div>

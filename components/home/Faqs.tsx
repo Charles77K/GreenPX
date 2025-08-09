@@ -22,7 +22,7 @@ const Faqs = ({
   };
 
   return (
-    <div className="flex flex-col items-center py-20 px-4 md:px-6">
+    <div className="flex flex-col bg-white items-center py-20 px-4 md:px-6">
       {header && (
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
